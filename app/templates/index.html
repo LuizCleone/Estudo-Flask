@@ -18,20 +18,19 @@
             <hr>
             <br>
             {% if current_user.is_authenticated %}
-                <span>{{ current_user.nome }} {{ current_user.sobrenome }}</span>
-                <a href="{{url_for('logout')}}">Sair</a>
+                <span id="sair">{{ current_user.nome }} {{ current_user.sobrenome }}</span>
+                <a class="logout" href="{{url_for('logout')}}">Sair</a>
             {% else %}
-            {{form.csrf_token}}
             <form method="post"> 
-            
                 <div id="form">
                     <h1>Bem-Vindo(a) de volta!</h1>
                     <div id="acesso">
-                       {{form.email.label}}
-                       {{form.email}}                
+                        {{form.csrf_token}}
+                        {{form.email.label}}
+                        {{form.email}}                
                 <br>
-                       {{form.senha.label}}
-                       {{form.senha}}
+                        {{form.senha.label}}
+                        {{form.senha}}
                     </div>
                 <br>
                 <br>

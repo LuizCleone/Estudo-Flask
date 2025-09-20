@@ -8,20 +8,19 @@ from app.forms import ContatoForm, UserForm, LoginForm
 
 @app.route("/", methods = ["GET", "POST"])
 def homepage():
-    form = LoginForm()
+   form = LoginForm()
 
-    if form.validate_on_submit():
-        user = form.login()
-        login_user(user, remember=True)
-
-    return render_template("index.html", form = form)
+   if form.validate_on_submit():
+      user = form.login()
+      login_user(user, remember=True)
+      
+   return render_template("index.html", form = form)
 
 
 @app.route("/cadastro/", methods = ["GET", "POST"])
 def cadastro():
    form = UserForm()
    if form.validate_on_submit():
-      print("DEU CERTO")
       user = form.save()
       login_user(user, remember=True)
       return redirect(url_for("homepage"))
@@ -30,8 +29,8 @@ def cadastro():
 
 @app.route("/sair/")
 def logout():
-    logout_user()
-    return redirect(url_for("homepage"))
+   logout_user()
+   return redirect(url_for("homepage"))
 
 
 @app.route("/contato/", methods = ["GET", "POST"])

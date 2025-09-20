@@ -21,7 +21,3 @@ flask db upgrade
 dentro da env
 DATABASE_URI = sqlite:///database.db   
 SECRET_KEY = qwer1234yuio5678azsxdcfvgbhnjm
-
-alteração
-alteração 2
-alteração 3

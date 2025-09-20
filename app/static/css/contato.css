@@ -1,3 +1,7 @@
+body {
+    min-height: 100vh;
+}
+
 h3 {
     font-size: 30px;
     font-weight: bold;
