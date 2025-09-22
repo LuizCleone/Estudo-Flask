@@ -45,7 +45,15 @@ class LoginForm(FlaskForm):
                 raise Exception("Senha incorreta")
         else:
             raise Exception("Usuário não encontrado")
-
+"""     
+            else:
+                self.senha.errors.append("Senha incorreta")
+                return None
+        else:
+            self.email.errors.append("Usuário não encontrado")
+            return None
+"""
+    
 
 class ContatoForm(FlaskForm):
     nome = StringField("Nome", validators=[DataRequired(), Length(max=50)])

@@ -9,6 +9,9 @@ pip install Flask-Migrate
 pip install flask_wtf
 pip install python-dotenv
 pip install flask-login flask-bcrypt
+pip install email-validator
+python3 -m pip install requests
+
 
 
   (depois que criar um novo banco)

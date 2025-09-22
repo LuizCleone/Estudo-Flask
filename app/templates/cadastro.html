@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="../static/css/cadastro.css">
 </head>
 <body>
+    <header>
+        <img id="img" src="{{ url_for('static', filename='img/hdchostlogo.png') }}">  
+    </header>
     <div id="userCad">
-        <h3>Cadastro de Usuários</h3>
-
         <form id="form" method="post">
-
+            <h3>Cadastro de Usuários</h3>
             {{form.csrf_token}}
             <div class="nome">
                 {{form.nome.label}}
@@ -33,6 +34,7 @@
                 {{form.confirmacao_senha.label}}
                 {{form.confirmacao_senha}}
             </div>
+            <br>
             <br>
             <div id="btnSubmit">
                  {{form.btnSubmit}}

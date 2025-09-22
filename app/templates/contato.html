@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../static/css/contato.css">
 </head>
 <body>
-
+  <img id="img" src="{{ url_for('static', filename='img/frasco-de-vidro.jpg') }}">
     <div>
-        <h3>Contato</h3>
-
+      
         <form method="post">
+          <h3>Contato</h3>
 
             {{form.csrf_token}}
             <div id="nome">
@@ -33,6 +33,7 @@
               {{form.mensagem.label}}
               {{form.mensagem}}
             </div>
+            <br>
             <br>
             <div id="btnSubmit">
               {{form.btnSubmit}}
