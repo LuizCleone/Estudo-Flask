@@ -2,24 +2,54 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
-header {
+#navbar-container {
     width: 100%;
     height: 380px;
     background-color: #232a31;
-    position: relative;
-    justify-content: space-between;
- 
+    padding: 8rem 10rem;
 }
 
-img {
-    
-    margin-left: 80px;
-    margin-top: 90px;
-    width: 200;
-    height: 200px;
+nav {
+    position: relative;
+    right: 0;
+}
+
+#navbar-items {
+    position: absolute;
+    right: 0;
+    height: 80px;
+    line-height: 80px;
+    margin: 0;
+    display: inline-block;
+}
+
+#navbar-items li {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-left: 25px;
+}
+
+#navbar-items a {
+   color: rgb(14, 13, 13);
+   font-weight: bold;
+   text-decoration: none;
+   transition: 0.4s;
+}
+
+#navbar-items a:hover {
+   background-color: #4cafa7 ; 
+   color: white; 
+}
+
+.btn {
+    padding: 15px 30px;
+    background-color: #4caf86;
+    border-radius: 5px;
+
 }
 
 #userCad {
@@ -28,15 +58,14 @@ img {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    width: 800px;
+    width: 900px;
     background-color: white;
-    margin-top: -150px;
+    margin-top: -130px;
     margin-bottom: 30px;
     border: 1px solid black;
-    border-radius: 10px;
-    margin-left: 30%;
+    border-radius: 5px;
+    margin-left: 450px;
 }
-
 
 h3 {
     text-transform: uppercase;
@@ -48,6 +77,7 @@ h3 {
 }
 #form {
     width: 100%;
+    padding: 1rem;
 }
 
 input {
@@ -77,22 +107,24 @@ label {
     border: 1px solid black;
     margin: 5px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 
 }
 
-#btnSubmit {
+#btnSubmit,
+.login,
+.contato {
     padding: auto;
-    background-color: #4caf86; /* Cor de fundo */
-    color: rgb(14, 13, 13); /* Cor do texto */
+    background-color: #4caf86; 
+    color: rgb(14, 13, 13); 
     font-weight: bold;
     width: 300px;
     height: 50px;
     font-size: 1.3rem; 
-    text-decoration: none; /* Remove o sublinhado padrão do link */
-    border: none; /* Remover as bordas */
-    border-radius: 10px; /* Bordas arredondadas */
-    cursor: pointer; /* Muda o cursor para apontar */
+    text-decoration: none; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
     display: flex;
     justify-content: center;
     text-align: center;
@@ -103,7 +135,10 @@ label {
     margin-bottom: 40px;
 }
 
-#btnSubmit:hover {
-  background-color: #4cafa7 ; /* Cor de fundo ao passar o mouse */
+#btnSubmit:hover,
+#contato:hover {
+  background-color: #4cafa7 ; 
   color: white;
 }
+
+

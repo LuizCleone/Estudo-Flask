@@ -7,9 +7,31 @@
     <link rel="stylesheet" href="../static/css/contato.css">
 </head>
 <body>
+  <!--
   <img id="img" src="{{ url_for('static', filename='img/frasco-de-vidro.jpg') }}">
+
+  <a href="{{ url_for('homepage') }}" class="login">Home</a>
+
+  <a href="{{ url_for('cadastro') }}" class="cadastro">cadastro</a>
     <div>
-      
+  -->  
+  <div id="container">
+        <div id="navbar-container">
+            <nav>    
+                <img id="img" src="{{ url_for('static', filename='img/frasco-de-vidro.jpg') }}">
+                <ul id="navbar-items">
+                    <li>
+                       <a href="{{ url_for('cadastro') }}" class="btn">cadastro</a>
+                    </li>  
+                    <li>
+                       <a href="{{ url_for('homepage') }}" class="btn">Entrar</a>
+                    </li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </div>     
+  
         <form method="post">
           <h3>Contato</h3>
 

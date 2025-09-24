@@ -7,9 +7,23 @@
     <link rel="stylesheet" href="../static/css/cadastro.css">
 </head>
 <body>
-    <header>
-        <img id="img" src="{{ url_for('static', filename='img/hdchostlogo.png') }}">  
-    </header>
+    
+    <div id="container">
+        <div id="navbar-container">
+            <nav>    
+                <img id="img" src="{{ url_for('static', filename='img/hdchostlogo.png') }}">
+                <ul id="navbar-items">
+                    <li>
+                       <a id="contato" href="{{ url_for('contato') }}" class="btn">Contato</a>
+                    </li>  
+                    <li>
+                       <a href="{{ url_for('homepage') }}" class="btn">Entrar</a>
+                    </li>  
+                </ul>
+            </nav>
+        </div>
+    </div>
+   
     <div id="userCad">
         <form id="form" method="post">
             <h3>Cadastro de Usuários</h3>
@@ -38,7 +52,7 @@
             <br>
             <div id="btnSubmit">
                  {{form.btnSubmit}}
-            </div>    
+            </div> 
         </form>
     </div>
 </body>
