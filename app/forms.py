@@ -8,7 +8,7 @@ from app.models import Contato, User
 class UserForm(FlaskForm):
     nome = StringField("Nome:", validators=[DataRequired(), Length(min=1, max=50)])
     sobrenome = StringField("Sobrenome:", validators=[DataRequired(), Length(min=1, max=50)])
-    email = StringField("Email:", validators=[DataRequired(), Email()])
+    email = StringField("Email:", validators=[DataRequired('Por favor, digite seu e-mail'), Email('Formato de e-mail inválido')])
     senha = PasswordField("Senha:", validators=[DataRequired()])
     confirmacao_senha = PasswordField("Confirme a senha:", validators=[DataRequired(), EqualTo("senha")])
     btnSubmit = SubmitField("Cadastrar")
@@ -32,7 +32,8 @@ class UserForm(FlaskForm):
         return user
     
 class LoginForm(FlaskForm):
-    email = StringField("Email", validators=[DataRequired(), Email()])
+    
+    email = StringField("Email", validators=[DataRequired('Por favor, digite seu e-mail'), Email('Formato de e-mail inválido')])
     senha = PasswordField("Senha", validators=[DataRequired()])
     btnSubmit = SubmitField("Login")
 
@@ -40,6 +41,7 @@ class LoginForm(FlaskForm):
         user = User.query.filter_by(email=self.email.data).first()
         if user:
             if bcrypt.check_password_hash(user.senha, self.senha.data.encode("utf-8")):
+                
                 return user
             else:
                 raise Exception("Senha incorreta")

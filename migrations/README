@@ -8,11 +8,18 @@ pip install Flask-SQLAlchemy
 pip install Flask-Migrate
 pip install flask_wtf
 pip install python-dotenv
+(pip install flask flask-login)
 pip install flask-login flask-bcrypt
 pip install email-validator
 python3 -m pip install requests
 
+// Para criar um token
+import secrets
 
+chave = secrets.token_hex(36)
+print(chave)
+
+pip install itsdangerous
 
   (depois que criar um novo banco)
 flask db migrate
