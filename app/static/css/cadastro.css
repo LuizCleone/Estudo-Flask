@@ -206,5 +206,48 @@ label {
         width: 95%;
     }
 
+}
 
+/* celular 450px */
+@media (max-width: 450px) {
+    html, body {
+        overflow: hidden;
+    }
+
+    #container {
+        width: 100%;
+    }
+
+    #navbar-container {
+        margin: 0;
+        padding: 90px 5px;
+
+    }
+    
+    #img {
+        width: 80px;
+    }
+
+    #navbar-items {
+        padding: 0;
+        margin-left: 1%;
+    }
+
+    #userCad {
+        width: 90%;
+        margin-left: 5%;
+    }
+    
+    label {
+        margin-left: 5%;
+    }
+
+    input {
+        width: 95%;
+    }
+
+    .senha input {
+        width: 80%;
+    }
+    
 }

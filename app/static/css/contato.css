@@ -170,3 +170,56 @@ form div btnSubmit  {
     }
 
 }
+
+@media (max-width: 450px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #container {
+        width: 100%;
+    }
+
+    #img {
+        width: 100%;
+    }
+
+    #navbar-container {
+        width: 100%;   
+    }
+    #navbar-container ul {
+        margin-left: 0;
+        padding: 1rem 2rem;
+        padding-left: 0;
+        padding-right: 50px;
+    }
+    #navbar-items {
+        margin-top: 100px;   
+    }
+
+    li {
+        padding: auto;
+    }
+
+
+    #form {
+        width: 95%;
+        margin-left: 5%;
+    }
+    
+    label {
+        margin-left: 5%;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    #btnSubmit {
+        width: 85%;
+    }
+    
+}
+

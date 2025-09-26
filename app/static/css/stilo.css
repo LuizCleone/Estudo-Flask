@@ -64,7 +64,7 @@ input {
 }
 
 label {
-  margin-right: 270px;
+  margin-right: 80%;
 }
 
 #header {
@@ -193,7 +193,53 @@ a:hover {
       width: 85%;
    }
 
+}
 
+/* celular 400px */
+@media (max-width: 400px) {
+   html, body {
+      overflow: hidden;
+   }
+   header p a {
+      margin: 0;
+   }
+
+   h1 {
+      font-size: 23px;
+   }
+    
+   #img {
+      width: 100%;
+   }
+
+   #navbar-items {
+      padding: 1rem 3.5rem;
+   }
+
+   #userCad {
+      width: 90%;
+      margin-left: 5%;
+   }
+    
+   label {
+      margin-left: 5%;
+   }
+
+   input {
+      width: 95%;
+   }
+   
+   #btnSubmit {
+      width: 100%;
+   }
+
+   p {
+      width: 100%;
+   }
+
+   #footer {
+      margin: 0;
+   }
 }
 
 
