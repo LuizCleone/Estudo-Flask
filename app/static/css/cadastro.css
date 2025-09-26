@@ -211,6 +211,7 @@ label {
 /* celular 450px */
 @media (max-width: 450px) {
     html, body {
+        margin-bottom: 200px;
         overflow: hidden;
     }
 
