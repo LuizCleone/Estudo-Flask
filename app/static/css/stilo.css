@@ -197,8 +197,8 @@ a:hover {
 
 /* celular 400px */
 @media (max-width: 400px) {
-   html, body {
-      overflow: hidden;
+   body {
+      margin-bottom: 200px;
    }
    header p a {
       margin: 0;

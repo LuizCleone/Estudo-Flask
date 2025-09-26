@@ -172,11 +172,10 @@ form div btnSubmit  {
 }
 
 @media (max-width: 450px) {
-    html, body {
+    body {
         margin: 0;
         margin-bottom: 200px;
-        padding: 0;
-        overflow: hidden;
+
     }
 
     #container {
