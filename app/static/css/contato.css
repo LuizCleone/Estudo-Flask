@@ -133,6 +133,11 @@ form div btnSubmit  {
   color: white;
 }
 
+#footer {
+   margin-top: 200px;
+   margin-bottom: 100px;
+}
+
 
 /*responsividade */
 /*smal laptops a partir de 1100px */
@@ -174,8 +179,7 @@ form div btnSubmit  {
 @media (max-width: 450px) {
     body {
         margin: 0;
-        margin-bottom: 200px;
-
+        margin-bottom: 300px;
     }
 
     #container {
@@ -203,7 +207,6 @@ form div btnSubmit  {
         padding: auto;
     }
 
-
     #form {
         width: 95%;
         margin-left: 5%;
@@ -220,6 +223,11 @@ form div btnSubmit  {
     #btnSubmit {
         width: 85%;
     }
+
+    #footer {
+      margin-top: 70px;
+      margin-bottom: 70px;
+   }
     
 }
 

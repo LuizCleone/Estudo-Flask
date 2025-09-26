@@ -198,7 +198,7 @@ a:hover {
 /* celular 400px */
 @media (max-width: 400px) {
    body {
-      margin-bottom: 200px;
+      margin-bottom: 300px;
    }
    header p a {
       margin: 0;
@@ -238,8 +238,8 @@ a:hover {
    }
 
    #footer {
-      margin-top: 100px;
-      margin-bottom: 100px;
+      margin-top: 70px;
+      margin-bottom: 70px;
    }
 }
 

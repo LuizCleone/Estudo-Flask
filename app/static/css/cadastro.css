@@ -141,6 +141,11 @@ label {
   color: white;
 }
 
+#footer {
+   margin-top: 200px;
+   margin-bottom: 100px;
+}
+
 
 /*responsividade */
 /*smal laptops a partir de 1100px */
@@ -211,8 +216,7 @@ label {
 /* celular 450px */
 @media (max-width: 450px) {
     body {
-        margin-bottom: 200px;
-
+        margin-bottom: 300px;
     }
 
     #container {
@@ -250,5 +254,10 @@ label {
     .senha input {
         width: 80%;
     }
+
+    #footer {
+      margin-top: 70px;
+      margin-bottom: 70px;
+   }
     
 }
