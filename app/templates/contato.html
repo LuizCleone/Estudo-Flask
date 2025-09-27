@@ -13,9 +13,9 @@
   <a href="{{ url_for('homepage') }}" class="login">Home</a>
 
   <a href="{{ url_for('cadastro') }}" class="cadastro">cadastro</a>
-    <div>
+  
   -->  
-  <div id="container">
+    <div id="container">
         <div id="navbar-container">
             <nav>    
                 <img id="img" src="{{ url_for('static', filename='img/flask.png') }}">
@@ -31,7 +31,7 @@
             </nav>
         </div>
     </div>     
-  
+    <div id="main">
         <form method="post">
           <h3>Contato</h3>
 
@@ -62,11 +62,15 @@
             </div>               
         </form>
     </div>
-    <footer id="footer">
-      <a target="_blank" rel="noopener" href="https://www.google.com/?hl=pt_BR">
-        <img loading="lazy" class="footseg" alt="Google - Site Seguro" title="Google - Site Seguro" 
-           src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" width="90" height="25">
-      </a>
+    <br>
+    <footer>
+      <div id="footer">
+        <a target="_blank" rel="noopener" href="https://www.google.com/?hl=pt_BR">
+          <img loading="lazy" class="footseg" alt="Google - Site Seguro" title="Google - Site Seguro" 
+            src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" width="90" height="25">
+        </a>
+      </div>
     </footer>
+    
 </body>
 </html>

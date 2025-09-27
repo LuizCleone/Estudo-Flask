@@ -134,8 +134,14 @@ form div btnSubmit  {
 }
 
 #footer {
-   margin-top: 200px;
-   margin-bottom: 100px;
+   margin-top: 500px;
+   margin-bottom: 70px;
+   width: 10vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 
@@ -224,10 +230,7 @@ form div btnSubmit  {
         width: 85%;
     }
 
-    #footer {
-      margin-top: 70px;
-      margin-bottom: 70px;
-   }
-    
+
+
 }
 

@@ -142,8 +142,14 @@ label {
 }
 
 #footer {
-   margin-top: 200px;
-   margin-bottom: 100px;
+   margin-top: 700px;
+   margin-bottom: 70px;
+   width: 10vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 
@@ -225,7 +231,7 @@ label {
 
     #navbar-container {
         margin: 0;
-        padding: 90px 5px;
+        padding: 90px 10px;
 
     }
     
@@ -235,7 +241,7 @@ label {
 
     #navbar-items {
         padding: 0;
-        margin-left: 1%;
+        margin-left: 2%;
     }
 
     #userCad {
@@ -256,8 +262,11 @@ label {
     }
 
     #footer {
-      margin-top: 70px;
-      margin-bottom: 70px;
+      margin-top: 600px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
    }
     
 }
