@@ -1,0 +1,337 @@
+* {
+    margin: auto 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+/* header */
+#container {
+    width: 100%;
+    height: 70px;
+    background-color: #232a31;
+    position: relative;
+    
+}
+
+#navbar-container {
+    position: relative; 
+    padding: 1vh 10vh;    
+}
+
+#items {
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+}
+
+#logo {
+    width: 50px;    
+}
+
+#pesquisar {
+    height: 40px;
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 3vh;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+#items a {
+    color: #4cafa7;
+    margin-left: 4vh;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+#items a:hover {
+    color: blue;
+}
+
+span {
+    font-size: 4vh;
+    font-weight: bold;
+    color: aliceblue;
+}
+ /* Main-Banner */
+#main-banner {
+    background-image: url("../img/logo-contato.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 9rem 0;
+}
+
+#main-banner h1,
+#main-banner p {
+    color: aliceblue;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: #000 3px 2px 3px;
+}
+
+#main-banner h1 {
+    font-size: 12vh;
+}
+
+#main-banner p {
+    font-size: 6vh;
+}
+/* sextion */
+.services-container {
+    padding: 6rem 0;
+}
+
+.services-container ul {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;   
+}
+
+.services-container li {
+    flex: 1 1 200px;
+    list-style: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.fas {
+    font-size: 65px;
+    margin-bottom: 15px;
+    padding: 5px 0;
+}
+
+.fa-shield-alt {
+    color: #2cc76a;
+}
+.fa-rocket {
+    color: #ef3f29;
+}
+
+.fa-comments {
+    color: #ef8f29;
+}
+
+.services-container h3 {
+    margin-bottom: 25px;
+}
+
+.services-container p {
+    line-height: 24px;
+}
+
+/* section-prices and plans */
+.pricing-container {
+    padding: 5rem;
+    text-align: center;
+}
+
+.pricing-container h2 {
+    font-size: 36px;
+}
+
+.pricing-container p {
+    font-size: 20px;
+}
+
+.plans-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 50px auto 0;
+}
+
+.plan {
+    flex: 1;
+    max-width: 275px;
+    margin: 0 20px;
+}
+
+.plan ul {
+    padding: 0%;
+}
+
+.plan li {
+    list-style: none;
+    height: 50px;
+    line-height: 50px;
+    background-color: #e8e9ea;
+    color: #333;
+}
+
+.plan .price {
+    width: 120px;
+    height: 120px;
+    border-radius: 50vh;
+    background-color: #2cc762;
+    color: #fff;
+    text-align: center;
+    line-height: 120px;
+    margin: 0 auto -50px;
+    font-size: 18px;
+    position: relative;
+}
+
+.plan .plan-name {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #202b34;
+    padding: 50px 0;
+}
+
+.plan .plan-btn {
+    background-color: #2cc762;
+    color: #fff;
+    font-size: 24px;
+    height: 75px;
+    line-height: 75px;
+    cursor: pointer;
+}
+
+.plan .recommended {
+    background-color: #f45c57;
+}
+
+/* search dominio */
+.searchdomain-container {
+    background-color: #34454e;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.searchdomain-container h2 {
+    color: #fff;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.searchdomain-container p {
+    color: #d5d5d5;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.searchdomain-container input {
+    display: block;
+    border: none;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.searchdomain-container input[type="text"] {
+    width: 60%;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.searchdomain-container input[type="submit"] {
+    background-color: #2cc76a;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.searchdomain-container input[type="submit"] {
+    opacity: 1;
+}
+/*  Fomulário de Contatos */
+#contact-container {
+    text-align: center;
+    padding: 6vh 0 3vh 0;
+}
+
+#contact-container h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#contact-container p {
+    font-size: 25px;
+    margin-bottom: 45px;
+}
+
+#contact-container input,
+#contact-container textarea {
+    width: 250px;
+    padding: 15px 25px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 10px 20px;
+}
+
+#contact-container textarea {
+    display: block;
+    margin: 0 auto 20px;
+    width: 500px;
+    height: 200px;
+}
+
+#contact-container input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background-color: #2cc76a;
+    color: #fff;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 70px;
+    background-color: #ccc;
+}
+
+.google {
+   width: 10vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+}
+
+.curso {
+    margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

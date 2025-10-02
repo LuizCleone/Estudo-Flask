@@ -14,8 +14,8 @@ pip install email-validator
 python3 -m pip install requests
 
 // Para criar um token
-import secrets
 
+import secrets
 chave = secrets.token_hex(36)
 print(chave)
 

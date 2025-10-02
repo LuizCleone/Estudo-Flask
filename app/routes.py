@@ -13,8 +13,14 @@ def homepage():
    if form.validate_on_submit():
       user = form.login()
       login_user(user, remember=True)
+      return redirect(url_for('welcome'))
       
    return render_template("index.html", form = form)
+
+@app.route('/welcome')
+def welcome():
+    return render_template('welcome.html')
+
 
 
 @app.route("/cadastro/", methods = ["GET", "POST"])
@@ -42,7 +48,6 @@ def contato():
 
    return render_template("contato.html", form = form)
 
-'''
 @app.route("/contatoOld/", methods = ["GET", "POST"])
 def contatoOld():
    context = {}
@@ -67,4 +72,3 @@ def contatoOld():
       db.session.commit()
 
    return render_template("contatoOld.html", context = context)
-'''

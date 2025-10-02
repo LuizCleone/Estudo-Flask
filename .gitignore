@@ -2,4 +2,4 @@ venv
 
 .env
 
-gerarToken.py
+chave.py

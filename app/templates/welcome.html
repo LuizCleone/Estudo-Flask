@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title> 
+    <!-- Ícones-->
+    <link rel="stylesheet" 
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+       integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+       crossorigin="anonymous" 
+       referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div id="container">         
+        <div id="navbar-container">                  
+            <nav id="items">
+                <div id="header-right">
+                    <img id="logo" src="../static/img/hdchostlogo.png" alt=""> 
+                </div>
+                <input id="pesquisar" type="text" placeholder="Pesquisar">
+                <div id="header-left">
+                    <span>Olá, {{ current_user.nome }}</span>
+                    <a class="logout" href="{{url_for('logout')}}">Sair</a> 
+                </div>  
+            </nav>
+        </div>
+        <main>
+            <div id="main-banner">
+                <h1>Flask</h1>
+                <p>web development, one drop at a time</p>
+            </div>
+            <section class="services-container">
+                <ul>
+                    <li>
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Segurança</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Voluptatum esse odit quasi nesciunt ut numquam voluptates 
+                            corrupti tempora, odio,tempore quia! Quidem vel fugit ut adipisci
+                            molestiae dolore aperiam tempora.
+                        </p>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-rocket"></i>
+                        <h3>Performance</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Voluptatum esse odit quasi nesciunt ut numquam voluptates 
+                            corrupti tempora, odio,tempore quia! Quidem vel fugit ut adipisci
+                            molestiae dolore aperiam tempora.
+                        </p>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-comments"></i>
+                        <h3>Suporte</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Voluptatum esse odit quasi nesciunt ut numquam voluptates 
+                            corrupti tempora, odio,tempore quia! Quidem vel fugit ut adipisci
+                            molestiae dolore aperiam tempora.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="pricing-container">
+                <h2>Cursos e Preços</h2>
+                <p>Selecione um curso que atende a sua necessidade</p>
+                <div class="plans-container">
+                    <div class="plan">
+                        <ul>
+                            <li class="price">R$ 190/mês</li>
+                            <li class="plan-name">HTML / CSS</li>
+                            <li>Html</li>
+                            <li>CSS</li>
+                            <li>Html / Css Avançado</li>
+                            <li>C-panel</li>
+                            <li>Suporte</li>
+                            <li class="plan-btn">Saber mais</li>
+                        </ul>
+                    </div>
+                    <div class="plan">
+                        <ul>
+                            <li class="price">R$ 296/mês</li>
+                            <li class="plan-name">JavaScript / React</li>
+                            <li>JavaScript 2</li>
+                            <li>Node JS e Git / GitHub</li>
+                            <li>React JS</li>
+                            <li>UX / UI Figma</li>
+                            <li>Suporte</li>
+                            <li class="plan-btn">Saber mais</li>
+                        </ul>
+                    </div>
+                    <div class="plan">
+                        <ul>
+                            <li class="price recommended">R$ 296/mês</li>
+                            <li class="plan-name">Python / FLASK</li>
+                            <li>Lógia / Banco de Dados</li>
+                            <li>Rest Api & Git</li>
+                            <li>Flask</li>
+                            <li>Power BI e AWS</li>
+                            <li>Suporte</li>
+                            <li class="plan-btn recommended">Saber mais</li>
+                        </ul>
+                    </div>
+                    <div class="plan">
+                        <ul>
+                            <li class="price">R$ 296/mês</li>
+                            <li class="plan-name">php</li>
+                            <li>Algoritmo e Aplicações</li>
+                            <li>Lógica de Programação</li>
+                            <li>MySQL e MySQLi</li>
+                            <li>POO</li>
+                            <li>Suporte</li>
+                            <li class="plan-btn">Saber mais</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="searchdomain-container">
+                <h2>Qual curso você pretende iniciar?</h2>
+                <p>Verifique a disponibilidade do seu curso</p>
+                <form >
+                    <input 
+                    type="text" 
+                    name="domain" 
+                    id="domain" 
+                    placeholder="Digite o curso"
+                    />
+                    <input type="submit" value="Procurar" />
+                </form>
+            </section>
+            <section id="contact-container">
+                <h2>Mande uma mensagem</h2>
+                <p>Envie a sua mensagem,um especialista entrará em contato</p>
+                <form>
+                    <input type="text" name="name" id="name" placeholder="Seu nome">
+                    <input type="email" name="email" id="email" placeholder="Seu e-mail">
+                    <textarea name="message" 
+                       id="message" 
+                       placeholder="Descreva qual curso você pretende iniciar">
+                    </textarea>
+                    <input type="submit" value="Enviar">
+                </form>
+            </section>
+        </main>
+        <footer>
+            <br>
+            <div class="google">
+                <a target="_blank" rel="noopener" href="https://www.google.com/?hl=pt_BR">
+                <img loading="lazy" class="footseg" 
+                    alt="Google - Site Seguro" title="Google - Site Seguro" 
+                    src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" 
+                    width="90" height="25">
+                </a>
+            </div>
+            <br>
+            <div class="curso">
+                <p>Cursos de Programação @ 2025</p>
+            </div>   
+        </footer>
+    </div>   
+</body>
+</html>

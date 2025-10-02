@@ -7,7 +7,7 @@
         <title>estudoFlask</title>
     </head>
     <body>
-        <img id="img" src="{{ url_for('static', filename='img/pyFlask.png') }}">
+        <img id="img" src="{{ url_for('static', filename='img/internet-digital-cadastro.webp') }}">
         <div id="container">
             <div id="header">
                 <br>
@@ -17,10 +17,7 @@
             </div>
             <hr>
             <br>
-           {% if current_user.is_authenticated %}
-                <span id="sair">{{ current_user.nome }} {{ current_user.sobrenome }}</span>
-                <a class="logout" href="{{url_for('logout')}}">Sair</a>
-           {% else %}
+      
 
                 <form method="post"> 
                     <div id="form">
@@ -52,13 +49,14 @@
                 </form>
             
                 <footer id="footer">
-                    <a target="_blank" rel="noopener" href="https://www.google.com/?hl=pt_BR">
-                        <img loading="lazy" class="footseg" alt="Google - Site Seguro" title="Google - Site Seguro" src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" width="90" height="25">
+                    <a target="_blank" rel="noopener" 
+                      href="https://www.google.com/?hl=pt_BR">
+                        <img loading="lazy" class="footseg" 
+                          alt="Google - Site Seguro" title="Google - Site Seguro" 
+                          src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" 
+                          width="90" height="25">
                     </a>
-                </footer>
-                    
-            {% endif %}
-        
+                </footer>  
     </body>
 </html>
 

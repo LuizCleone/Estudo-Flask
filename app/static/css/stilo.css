@@ -44,10 +44,6 @@ h1 {
    margin: 10px;
 }
 
-.contato:hover {
-   color: #0000ff ;
-}
-
 input { 
    padding: 10px 15px;
    border: 1px solid black; 
@@ -99,7 +95,6 @@ label {
 }
 
 #btnSubmit:hover {
-  background-color: #4cafa7 ; 
   color: white;
 }
 
@@ -118,9 +113,8 @@ a {
    transition: 0.4s;
 }
 
-a:hover {
-   background-color: #4cafa7 ; 
-   color: white;
+a:hover { 
+   color: rgb(14, 151, 243);
 } 
 
 #footer {
