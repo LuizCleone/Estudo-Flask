@@ -1,236 +1,303 @@
+/* ===== FORMULÁRIO CONTATO ===== */
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
 
+/* Labels */
+.container form label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Inputs e Textarea */
+.container form input[type="text"],
+.container form input[type="email"],
+.container form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.container form input:focus,
+.container form textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 86, 179, 0.3);
+}
+
+/* Textarea específico */
+.container form textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
+}
+
+/* Botão Enviar */
+.container form .btn {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 12px 0;
+    border-radius: 8px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.container form .btn:hover {
+    background-color: #004494;
+    transform: scale(1.03);
+}
+
+/* Mensagens Flash */
+.flash-messages {
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+}
+
+.flash-messages li {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+
+.flash-messages .success {
+    background-color: #28a745;
+}
+
+.flash-messages .error {
+    background-color: #dc3545;
+}
+
+.flash-messages .info {
+    background-color: #17a2b8;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+        margin-top: 30px;
+    }
+
+    form input, form textarea, .btn {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+}
+
+/* ===== Reset e Base ===== */
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-  
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
-nav {
-    position: relative;
-    right: 0;
-}
-
-#navbar-items {
-    position: absolute;
-    right: 0;
-    height: 80px;
-    line-height: 80px;
-    margin: 0;
-    display: inline-block;
-    padding: 6rem 8.5rem;
-}
-
-#navbar-items li {
-    display: inline-block;
-    text-transform: uppercase;
-    margin-left: 25px;
-}
-
-#navbar-items a {
-   color: rgb(14, 13, 13);
-   font-weight: bold;
-   text-decoration: none;
-   transition: 0.4s;
-}
-
-#navbar-items a:hover {
-   background-color: #4cafa7 ; 
-   color: white; 
-}
-
-.btn {
-    padding: 15px 30px;
-    background-color: #4caf86;
-    border-radius: 5px;
-}
-
-#img {
-   width: 100%;
-   height: 380px;
-   position: relative; /* Cria um contexto de posicionamento para o texto */
-   display: inline-block;
-}
-
-h3 {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-form {
-    position: absolute;
-    width: 800px;
-    height: 550px;
-    /* Apenas para centralizar o form na página */
-    margin: 0 auto;
-    margin-top: -130px;
-    margin-left: 550px;  
-    background-color: white;
-    /* Para ver as bordas do formulário */
-    padding: 2rem;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-form div {
-    /*para deixae o form em coluna */
-    margin-top: 1em;
-    width: 90%;
+body {
+    background: linear-gradient(135deg, #004aad, #0073e6);
+    min-height: 100vh;
+    color: #333;
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
 }
 
-label {
-  text-align: left;
-}
-
-input { 
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 10px;   
-}
-
-#mensagem input {
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-}
-
-form div btnSubmit  {
+/* ===== Header (Topo) ===== */
+.topo {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    padding: 15px 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
-#btnSubmit {
-   padding: auto;
-   background-color: #4caf86;
-   color: rgb(14, 13, 13);
-   font-weight: bold;
-   width: 300px;
-   height: 50px;
-   font-size: 25px;  
-   text-decoration: none;
-   border: none; 
-   border-radius: 10px; 
-   cursor: pointer;
-   display: flex;
-   justify-content: center;
-   text-align: center;
-   margin: 0 auto;   
-   opacity: 0.9;
-   transition: 0.4s;
+.topo nav {
+    display: flex;
+    gap: 30px;
 }
 
-#btnSubmit:hover {
-  background-color: #4cafa7 ; /* Cor de fundo ao passar o mouse */
-  color: white;
+.topo a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-#footer {
-   margin-top: 500px;
-   margin-bottom: 70px;
-   width: 10vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-left: auto;
-   margin-right: auto;
+.topo a:hover {
+    color: #ffeb3b;
 }
 
-
-/*responsividade */
-/*smal laptops a partir de 1100px */
-@media (max-width: 1100px) {
-    img {
-      width: 100%;
-    }
+/* ===== Container Principal ===== */
+#container {
+    background-color: #fff;
+    margin-top: 100px;
+    width: 450px;
+    max-width: 90%;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.6s ease-in-out;
 }
 
-/* tablet 900px */
-@media (max-width: 900px) {
-    img {
-      width: 100%;
-    }
-
-    form {  
-        width: 80%;
-        margin-left: 10%;
-        
-    }
+h1 {
+    text-align: center;
+    color: #004aad;
+    margin-bottom: 20px;
 }
 
-/* celular 576px */
-@media (max-width: 576px) {
+/* ===== Formulário ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    resize: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #0073e6;
+    box-shadow: 0 0 6px rgba(0, 115, 230, 0.4);
+    outline: none;
+}
+
+/* ===== Botão ===== */
+form input[type="submit"],
+button {
+    background-color: #0073e6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover,
+button:hover {
+    background-color: #005bb5;
+}
+
+/* ===== Mensagens Flash ===== */
+.flash-messages {
+    list-style: none;
+    margin-top: 100px;
+    margin-bottom: 15px;
+    padding: 0;
+    width: 90%;
+    max-width: 450px;
+}
+
+.flash-messages li {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeMessage 6s ease-in-out forwards;
+}
+
+/* Categorias */
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error, .danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* ===== Mensagens de erro de campo ===== */
+.erro {
+    color: #e60000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* ===== Animações ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeMessage {
+    0% { opacity: 0; transform: translateY(-5px); }
+    10% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-5px); display: none; }
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 480px) {
     #container {
-        width: 100%;
+        width: 90%;
+        padding: 25px 20px;
     }
 
-    #navbar-items {
-        width: auto;
+    .topo nav {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    #navbar-container ul {
-        padding: 1rem 7.5rem; 
+    .flash-messages {
+        margin-top: 90px;
     }
-
-}
-
-@media (max-width: 450px) {
-    body {
-        margin: 0;
-        margin-bottom: 300px;
-    }
-
-    #container {
-        width: 100%;
-    }
-
-    #img {
-        width: 100%;
-    }
-
-    #navbar-container {
-        width: 100%;   
-    }
-    #navbar-container ul {
-        margin-left: 0;
-        padding: 1rem 2rem;
-        padding-left: 0;
-        padding-right: 50px;
-    }
-    #navbar-items {
-        margin-top: 100px;   
-    }
-
-    li {
-        padding: auto;
-    }
-
-    #form {
-        width: 95%;
-        margin-left: 5%;
-    }
-    
-    label {
-        margin-left: 5%;
-    }
-
-    input {
-        width: 100%;
-    }
-
-    #btnSubmit {
-        width: 85%;
-    }
-
-
-
 }
 

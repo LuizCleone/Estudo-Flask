@@ -1,4 +1,4 @@
-
+/*
 * {
    margin: 0;
    padding: 0;
@@ -154,22 +154,21 @@ a:hover {
    transition: 0.4s;
 }
 
-/*responsividade */
-/*smal laptops a partir de 1100px */
+
 @media (max-width: 1100px) {
     img {
       width: 100%;
     }
 }
 
-/* tablet 900px */
+
 @media (max-width: 900px) {
     img {
       width: 100%;
     }
 }
 
-/* celular 576px */
+
 @media (max-width: 576px) {
    img {
       width: auto;
@@ -190,7 +189,7 @@ a:hover {
 
 }
 
-/* celular 400px */
+
 @media (max-width: 400px) {
    body {
       margin-bottom: 300px;
@@ -237,7 +236,178 @@ a:hover {
       margin-bottom: 70px;
    }
 }
+   */
+ /* ===== Reset e Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
 
+body {
+    background: linear-gradient(135deg, #004aad, #0073e6);
+    color: #333;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Container Geral ===== */
+#container {
+    background-color: #fff;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    animation: fadeInContainer 0.6s ease-in-out;
+}
+
+/* ===== Header (Links Superiores) ===== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.topo a {
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.topo a:hover {
+    color: #004aad;
+    text-decoration: underline;
+}
+
+/* ===== Título do Form ===== */
+.login h1 {
+    text-align: center;
+    color: #004aad;
+    margin-bottom: 20px;
+}
+
+/* ===== Formulário ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+form label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+    border-color: #0073e6;
+    box-shadow: 0 0 5px rgba(0, 115, 230, 0.4);
+    outline: none;
+}
+
+/* ===== Botão ===== */
+form input[type="submit"],
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0073e6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover,
+button:hover {
+    background-color: #005bb5;
+}
+
+/* ===== Mensagens Flash ===== */
+ul {
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+    animation: fadeMessage 6s ease-in-out forwards;
+    opacity: 0;
+}
+
+/* Estilos das categorias */
+li.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+li.error, li.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+li.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* ===== Animações ===== */
+@keyframes fadeInContainer {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in + Fade-out suave */
+@keyframes fadeMessage {
+    0% { opacity: 0; transform: translateY(-5px); }
+    10% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-5px); display: none; }
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 480px) {
+    #container {
+        padding: 25px 20px;
+        width: 90%;
+    }
+
+    .topo {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    form input[type="submit"] {
+        font-size: 15px;
+    }
+}
 
 
 

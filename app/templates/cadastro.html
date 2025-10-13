@@ -4,62 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../static/css/cadastro.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
 </head>
 <body>
-    
-    <div id="container">
-        <div id="navbar-container">
-            <nav>    
-                <img id="img" src="{{ url_for('static', filename='img/hdchostlogo.png') }}">
-                <ul id="navbar-items">
-                    <li>
-                       <a id="contato" href="{{ url_for('contato') }}" class="btn">Contato</a>
-                    </li>  
-                    <li>
-                       <a href="{{ url_for('homepage') }}" class="btn">Entrar</a>
-                    </li>  
-                </ul>
-            </nav>
-        </div>
-    </div>
-   
-    <div id="userCad">
-        <form id="form" method="post">
-            <h3>Cadastro de Usuários</h3>
-            {{form.csrf_token}}
-            <div class="nome">
-                {{form.nome.label}}
-                {{form.nome}}
-                
-                {{form.sobrenome.label}}
-                {{form.sobrenome}}
-            </div>    
-            <br>
-            <div class="email">
-                {{form.email.label}}
-                {{form.email}}
+    <!-- Navbar -->
+    <header id="navbar">
+        <nav id="navbar-items">
+            <a href="{{ url_for('homepage') }}">Home</a>
+            <a href="{{ url_for('contato') }}">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="cadastro-container">
+        <h1>Cadastro</h1>
+
+        <!-- Mensagens flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Formulário -->
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.nome.label }}
+                {{ form.nome(size=30) }}
+                {% for error in form.nome.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
             </div>
-            <br>
-            <div class="senha">
-                {{form.senha.label}}
-                {{form.senha}}
-            <br>
-                {{form.confirmacao_senha.label}}
-                {{form.confirmacao_senha}}
+
+            <div class="form-group">
+                {{ form.sobrenome.label }}
+                {{ form.sobrenome(size=30) }}
+                {% for error in form.sobrenome.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
             </div>
-            <br>
-            <br>
-            <div id="btnSubmit">
-                 {{form.btnSubmit}}
-            </div> 
-        </form>
-    </div>
-    <footer id="footer">
-        <a target="_blank" rel="noopener" href="https://www.google.com/?hl=pt_BR">
-            <img loading="lazy" class="footseg" alt="Google - Site Seguro" title="Google - Site Seguro" 
-            src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" width="90" height="25">
-        </a>
-    </footer>
+
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(size=30) }}
+                {% for error in form.email.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.senha.label }}
+                {{ form.senha(size=30) }}
+                {% for error in form.senha.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.confirmacao_senha.label }}
+                {{ form.confirmacao_senha(size=30) }}
+                {% for error in form.confirmacao_senha.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                {{ form.btnSubmit(class="btn-submit") }}
+            </div>
+        </form> 
+    </main>
 </body>
 </html>

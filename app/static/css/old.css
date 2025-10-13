@@ -34,7 +34,7 @@
     color: #ffcc00;
 }
 
-/* ===== CONTEÚDO PRINCIPAL ===== */
+/* ===== CONTAINER PRINCIPAL ===== */
 .cadastro-container {
     width: 90%;
     max-width: 450px;
@@ -70,7 +70,8 @@
     margin-bottom: 6px;
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -78,7 +79,8 @@
     transition: 0.3s;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     border-color: #0056b3;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
@@ -133,10 +135,7 @@
     transform: scale(1.02);
 }
 
-
 /* ===== RESPONSIVIDADE ===== */
-
-/* Tablets */
 @media (max-width: 768px) {
     #navbar-items {
         gap: 25px;
@@ -153,7 +152,6 @@
     }
 }
 
-/* Celulares */
 @media (max-width: 480px) {
     #navbar-items {
         flex-direction: column;
@@ -170,7 +168,8 @@
         font-size: 1.6rem;
     }
 
-    .form-group input {
+    .form-group input,
+    .form-group textarea {
         font-size: 0.95rem;
         padding: 10px;
     }
@@ -181,7 +180,6 @@
     }
 }
 
-/* Telas muito grandes */
 @media (min-width: 1600px) {
     .cadastro-container {
         max-width: 600px;

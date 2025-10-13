@@ -3,74 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos</title>
-    <link rel="stylesheet" href="../static/css/contato.css">
+    <title>Contato</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
 </head>
 <body>
-  <!--
-  <img id="img" src="{{ url_for('static', filename='img/frasco-de-vidro.jpg') }}">
+    <!-- Navbar -->
+    <header id="navbar">
+        <nav id="navbar-items">
+            <a href="{{ url_for('homepage') }}">Home</a>
+            <a href="{{ url_for('cadastro') }}">Cadastro</a>
+        </nav>
+    </header>
 
-  <a href="{{ url_for('homepage') }}" class="login">Home</a>
+    <!-- Conteúdo principal -->
+    <main class="cadastro-container">
+        <h1>Contato</h1>
 
-  <a href="{{ url_for('cadastro') }}" class="cadastro">cadastro</a>
-  
-  -->  
-    <div id="container">
-        <div id="navbar-container">
-            <nav>    
-                <img id="img" src="{{ url_for('static', filename='img/background-contato.jpg') }}">
-                <ul id="navbar-items">
-                    <li>
-                       <a href="{{ url_for('cadastro') }}" class="btn">cadastro</a>
-                    </li>  
-                    <li>
-                       <a href="{{ url_for('homepage') }}" class="btn">Entrar</a>
-                    </li>
-                   
-                </ul>
-            </nav>
-        </div>
-    </div>     
-    <div id="main">
-        <form method="post">
-          <h3>Contato</h3>
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
 
-            {{form.csrf_token}}
-            <div id="nome">
-              {{form.nome.label}}
-              {{form.nome}}
+        <!-- Formulário -->
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.nome.label }}
+                {{ form.nome(size=30) }}
+                {% for error in form.nome.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
             </div>
-            <br>
-            <div id="email">
-              {{form.email.label}}
-              {{form.email}}
+
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(size=30) }}
+                {% for error in form.email.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
             </div>
-            <br>
-            <div id="assunto">
-              {{form.assunto.label}}
-              {{form.assunto}}
+
+            <div class="form-group">
+                {{ form.assunto.label }}
+                {{ form.assunto(size=50) }}
+                {% for error in form.assunto.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
             </div>
-            <br>
-            <div id="mensagem">
-              {{form.mensagem.label}}
-              {{form.mensagem}}
+
+            <div class="form-group">
+                {{ form.mensagem.label }}
+                {{ form.mensagem(rows=5, cols=50) }}
+                {% for error in form.mensagem.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
             </div>
-            <br>
-            <br>
-            <div id="btnSubmit">
-              {{form.btnSubmit}}
-            </div>               
+
+            <div class="form-group">
+                {{ form.btnSubmit(class="btn-submit") }}
+            </div>
         </form>
-    </div>
-    <br>
-    <footer>
-      <div id="footer">
-        <a target="_blank" rel="noopener" href="https://www.google.com/?hl=pt_BR">
-          <img loading="lazy" class="footseg" alt="Google - Site Seguro" title="Google - Site Seguro" 
-            src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" width="90" height="25">
-        </a>
-      </div>
-    </footer>
-    
+    </main>
 </body>
 </html>
