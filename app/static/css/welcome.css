@@ -329,7 +329,6 @@
 #contact-container input, 
 #contact-container textarea {
     width: 90%;
-    max-width: 20rem;
     padding: 0.7rem;
     margin-bottom: 12px;
     border-radius: 8px;
@@ -338,10 +337,14 @@
     font-size: 1rem;
 }
 
+#contact-container input {
+    max-width: 20rem;
+}
+
 #contact-container textarea {
     display: block;
     margin: 0 auto 1.6rem;
-    max-width: 34.5%;
+    width: 70%;
     min-height: 7rem;
     resize: both;
 }
@@ -383,9 +386,12 @@ footer {
         margin-bottom: 10px;
     }
 
-    #contact-container input,
-    #contact-container textarea {
+    #contact-container input {
         width: 100%;
+    }
+
+    #contact-container textarea {
+        width: 80%;
     }
 
     .main-banner {
@@ -412,5 +418,8 @@ footer {
 
     .main-banner p {
         font-size: 0.9rem;
+    }
+    #contact-container textarea {
+        width: 80%;
     }
 }
