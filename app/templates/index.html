@@ -4,31 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!--
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stilo.css') }}">
 </head>
 <body>
     <!-- Navbar -->
     <header id="navbar">
         <nav id="navbar-items">
             <a href="{{ url_for('contato') }}">Contato</a>
-            <a href="{{ url_for('cadastro') }}">Cadastro</a>
         </nav>
     </header>
 
     <!-- Conteúdo principal -->
     <main class="cadastro-container">
-        <h1>Login</h1>
+        <h1>Bem-Vindo de volta!</h1>
 
-        <!-- Flash messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            <ul class="flash-messages">
-              {% for category, message in messages %}
+            <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for category, message in messages %}
+                {% if category != 'success' or 'Logout' in message %}
                 <li class="{{ category }}">{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
 
         <!-- Formulário -->
         <form method="POST">
@@ -59,5 +64,17 @@
             Não tem conta? <a href="{{ url_for('cadastro') }}">Cadastre-se</a>
         </p>
     </main>
+    <script>
+        // Espera 3 segundos e remove as mensagens flash da tela
+        setTimeout(() => {
+            const flashMessages = document.querySelectorAll(".flash-messages li");
+            flashMessages.forEach(msg => {
+            msg.style.transition = "opacity 0.5s ease";
+            msg.style.opacity = "0";
+            setTimeout(() => msg.remove(), 500); // Remove o elemento após o fade
+            });
+        }, 3000); // ⏱ Tempo (3000ms = 3 segundos)
+    </script>
+
 </body>
 </html>

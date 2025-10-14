@@ -1,110 +1,3 @@
-/* ===== FORMULÁRIO CONTATO ===== */
-.container form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-/* Labels */
-.container form label {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 6px;
-    display: block;
-}
-
-/* Inputs e Textarea */
-.container form input[type="text"],
-.container form input[type="email"],
-.container form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.container form input:focus,
-.container form textarea:focus {
-    border-color: #0056b3;
-    outline: none;
-    box-shadow: 0 0 6px rgba(0, 86, 179, 0.3);
-}
-
-/* Textarea específico */
-.container form textarea {
-    resize: vertical;
-    min-height: 100px;
-    max-height: 300px;
-}
-
-/* Botão Enviar */
-.container form .btn {
-    width: 100%;
-    text-align: center;
-    font-size: 1.1rem;
-    padding: 12px 0;
-    border-radius: 8px;
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
-}
-
-.container form .btn:hover {
-    background-color: #004494;
-    transform: scale(1.03);
-}
-
-/* Mensagens Flash */
-.flash-messages {
-    list-style: none;
-    margin: 15px 0;
-    padding: 0;
-}
-
-.flash-messages li {
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
-}
-
-.flash-messages .success {
-    background-color: #28a745;
-}
-
-.flash-messages .error {
-    background-color: #dc3545;
-}
-
-.flash-messages .info {
-    background-color: #17a2b8;
-}
-
-/* Responsividade */
-@media (max-width: 480px) {
-    .container {
-        width: 95%;
-        padding: 25px;
-        margin-top: 30px;
-    }
-
-    form input, form textarea, .btn {
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 1.7rem;
-    }
-}
-
 /* ===== Reset e Base ===== */
 * {
     margin: 0;
@@ -155,7 +48,7 @@ body {
 /* ===== Container Principal ===== */
 #container {
     background-color: #fff;
-    margin-top: 100px;
+    margin-top: 120px; /* distancia do topo fixo */
     width: 450px;
     max-width: 90%;
     padding: 30px 25px;
@@ -164,6 +57,7 @@ body {
     animation: fadeIn 0.6s ease-in-out;
 }
 
+/* ===== Título ===== */
 h1 {
     text-align: center;
     color: #004aad;
@@ -185,16 +79,18 @@ form {
 form label {
     font-weight: 600;
     margin-bottom: 6px;
+    color: #333;
 }
 
+/* Inputs e Textarea */
 form input[type="text"],
 form input[type="email"],
 form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1.8px solid #ccc;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 1rem;
     resize: none;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -204,6 +100,13 @@ form textarea:focus {
     border-color: #0073e6;
     box-shadow: 0 0 6px rgba(0, 115, 230, 0.4);
     outline: none;
+}
+
+/* Textarea específico */
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
 }
 
 /* ===== Botão ===== */
@@ -217,12 +120,13 @@ button {
     padding: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 form input[type="submit"]:hover,
 button:hover {
     background-color: #005bb5;
+    transform: scale(1.03);
 }
 
 /* ===== Mensagens Flash ===== */
@@ -289,6 +193,7 @@ button:hover {
     #container {
         width: 90%;
         padding: 25px 20px;
+        margin-top: 100px;
     }
 
     .topo nav {
@@ -297,7 +202,17 @@ button:hover {
     }
 
     .flash-messages {
-        margin-top: 90px;
+        margin-top: 80px;
+    }
+
+    form input,
+    form textarea,
+    button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
     }
 }
-

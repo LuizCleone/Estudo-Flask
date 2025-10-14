@@ -374,6 +374,15 @@ footer {
 }
 
 /* ===== RESPONSIVIDADE ===== */
+@media (min-width: 1001px) {
+    body {
+        width: 100%;
+    }
+    #contact-container textarea {
+        width: 35%;
+    }
+
+}
 @media (max-width: 768px) {
     .services-container ul,
     .plans-container {
@@ -420,6 +429,6 @@ footer {
         font-size: 0.9rem;
     }
     #contact-container textarea {
-        width: 90%;
+        width: 80%;
     }
 }
