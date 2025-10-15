@@ -186,6 +186,33 @@
     }
 }
 
+@media (max-width: 400px) {
+    #navbar-items {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cadastro-container {
+        margin: 40px auto;
+        padding: 25px;
+        width: 92%;
+    }
+
+    .cadastro-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
 /* Telas muito grandes */
 @media (min-width: 1600px) {
     .cadastro-container {
