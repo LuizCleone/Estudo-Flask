@@ -15,7 +15,11 @@
 <body>
     <!-- Navbar -->
     <header id="navbar">
-        <nav id="navbar-items">
+        <form class="pesquisar">
+            <input type="text" class="search-input" placeholder="Buscar...">
+            <i class="fas fa-search search-icon"></i>
+        </form> 
+        <nav id="navbar-items">    
             <span>Olá, {{ current_user.nome }}</span>
             <a class="logout" href="{{ url_for('logout') }}">Sair</a>
         </nav>

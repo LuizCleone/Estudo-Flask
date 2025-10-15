@@ -12,14 +12,38 @@
     background-color: #0056b3;
     padding: 20px 20px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 1px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+#navbar form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.pesquisar {
+    margin: 0 auto;
+    width: 100vh;
+}
+
+.pesquisar input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 90%;
+    
+}
+
+.search-icon {
+    margin-left: -35px;
+    color: #888;
+    cursor: pointer;
+}  
+
 #navbar-items {
-    margin-right: 15vh;
+    margin-right: 20vh;
 }
 
 #navbar a, #navbar span {
@@ -35,7 +59,6 @@
 #navbar a:hover {
     color: #ffcc00;
 }
-
 /* ===== MAIN BANNER ===== */
 .main-banner {
     position: relative;
@@ -268,8 +291,6 @@
         transform: translateY(0);
     }
 }
-
-
 /* ===== BUSCA DE CURSO ===== */
 .searchdomain-container {
     text-align: center;
@@ -307,7 +328,6 @@
     background-color: #004494;
     transform: scale(1.03);
 }
-
 /* ===== FORMULÁRIO DE CONTATO ===== */
 #contact-container {
     background: #f2f8ff;
@@ -364,7 +384,6 @@
     background-color: #004494;
     transform: scale(1.03);
 }
-
 /* ===== FOOTER ===== */
 footer {
     text-align: center;
@@ -372,18 +391,26 @@ footer {
     background-color: #f1f1f1;
     margin-top: 30px;
 }
-
 /* ===== RESPONSIVIDADE ===== */
 @media (min-width: 1001px) {
     body {
         width: 100%;
     }
+
+    #navbar {
+        width: 100%;
+    }
+
     #contact-container textarea {
         width: 35%;
     }
 
 }
 @media (max-width: 768px) {
+    #navbar {
+        width: 100%;
+    }
+    
     .services-container ul,
     .plans-container {
         flex-direction: column;
@@ -400,7 +427,7 @@ footer {
     }
 
     #contact-container textarea {
-        width: 90%;
+        width: 100%;
     }
 
     .main-banner {
@@ -417,8 +444,48 @@ footer {
 }
 
 @media (max-width: 480px) {
+    #navbar {
+        width: 100%;
+    }
     .main-banner {
         height: 250px;
+    }
+
+    .main-banner h1 {
+        font-size: 1.8rem;
+    }
+
+    .main-banner p {
+        font-size: 0.9rem;
+    }
+    #contact-container textarea {
+        width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    #navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .pesquisar {
+        width: 50%;
+    }
+    #navbar-items {
+        margin: 0 auto;
+    }
+    #navbar-items span  {
+        font-size: 1rem;
+        margin-right: 0.2rem;
+    }
+    #navbar-items a {
+        font-size: 0.6rem;
+        margin-left: 0.3rem;
+    }
+    .main-banner {
+        height: auto;
     }
 
     .main-banner h1 {
