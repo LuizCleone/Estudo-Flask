@@ -1,154 +1,438 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title> 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" 
-       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
-       integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
-       crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- CSS Unificado -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/welcome.css') }}">
-</head>
-<body>
-    <!-- Navbar -->
-    <header id="navbar">
-        <form class="pesquisar">
-            <input type="text" class="search-input" placeholder="Buscar...">
-            <i class="fas fa-search search-icon"></i>
-        </form> 
-        <nav id="navbar-items">    
-            <span>Olá, {{ current_user.nome }}</span>
-            <a class="logout" href="{{ url_for('logout') }}">Sair</a>
-        </nav>
-    </header>
-            <!-- Conteúdo principal -->
-    <main class="cadastro-container">
-                <!-- Banner -->
-        <div class="main-banner">
-            <div class="topo">
-                <h1>Flask</h1>
-                <p>Web development, one drop at a time</p>
-            </div>   
-        </div>
-                <!-- Serviços -->
-        <section class="services-container">
-            <ul>
-                <li>
-                    <i class="fas fa-shield-alt fa-2x"></i>
-                    <h3>Segurança</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Voluptatum esse odit quasi nesciunt ut numquam voluptates 
-                        corrupti tempora, odio,tempore quia! Quidem vel fugit ut 
-                        adipisci molestiae dolore aperiam tempora.</p>
-                </li>
-                <li>
-                    <i class="fas fa-rocket fa-2x"></i>
-                    <h3>Performance</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Voluptatum esse odit quasi nesciunt ut numquam voluptates 
-                        corrupti tempora, odio,tempore quia! Quidem vel fugit ut 
-                        adipisci molestiae dolore aperiam tempora.</p>
-                </li>
-                <li>
-                    <i class="fas fa-comments fa-2x"></i>
-                    <h3>Suporte</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Voluptatum esse odit quasi nesciunt ut numquam voluptates 
-                        corrupti tempora, odio,tempore quia! Quidem vel fugit ut 
-                        adipisci molestiae dolore aperiam tempora.</p>
-                </li>
-            </ul>
-        </section>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Henriquejorge</title>
 
-        <!-- Planos -->
-        <section class="pricing-container">
-            <h2>Cursos e Preços</h2>
-            <p>Selecione um curso que atende a sua necessidade</p>
-            <div class="plans-container">
-                <div class="plan">
-                    <ul>
-                        <li class="price">R$ 190/mês</li>
-                        <li class="plan-name">HTML / CSS</li>
-                        <li>Html</li>
-                        <li>CSS</li>
-                        <li>Html / Css Avançado</li>
-                        <li>C-panel</li>
-                        <li>Suporte</li>
-                        <li class="plan-btn btn-submit">Saber mais</li>
-                    </ul>
-                </div>
-                <div class="plan">
-                    <ul>
-                        <li class="price">R$ 296/mês</li>
-                        <li class="plan-name">JavaScript / React</li>
-                        <li>JavaScript 2</li>
-                        <li>Node JS e Git / GitHub</li>
-                        <li>React JS</li>
-                        <li>UX / UI Figma</li>
-                        <li>Suporte</li>
-                        <li class="plan-btn btn-submit">Saber mais</li>
-                    </ul>
-                </div>
-                <div class="plan">
-                    <ul>
-                        <li class="price recommended">R$ 296/mês</li>
-                        <li class="plan-name">Python / Flask</li>
-                        <li>Lógica / Banco de Dados</li>
-                        <li>Rest API & Git</li>
-                        <li>Flask</li>
-                        <li>Power BI e AWS</li>
-                        <li>Suporte</li>
-                        <li class="plan-btn btn-submit recommended">Saber mais</li>
-                    </ul>
-                </div>
-                <div class="plan">
-                    <ul>
-                        <li class="price">R$ 296/mês</li>
-                        <li class="plan-name">PHP</li>
-                        <li>Algoritmo e Aplicações</li>
-                        <li>Lógica de Programação</li>
-                        <li>MySQL e MySQLi</li>
-                        <li>POO</li>
-                        <li>Suporte</li>
-                        <li class="plan-btn btn-submit">Saber mais</li>
-                    </ul>
-                </div>
+        <!-- Font Awesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/welcome.css') }}">
+    </head>
+    <body>
+        <header id="navbar">
+            <div class="image">
+                <img src="../static/img/logotitle.png" alt="">
+                <h1 id="logo">Bairro Henrique Jorge</h1>
             </div>
-        </section>
+            <div>
+                <nav id="navbar-items">
+                    <ul>
+                        <li><a href="{{ url_for('social') }}">Banco Social</a></li>
+                    <!--    <li><a href="{{ url_for('comercios_page') }}">Comércios</a></li>  -->
+                        <span>Olá, {{ user.nome }}</span>
+                            <a class="logout" href="{{ url_for('logout') }}">Sair</a>                
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="main-principal">
+            <section class="main-banner">
+                <div class="banner-text">
+                    <h1>BAIRRO HENRIQUE JORGE</h1>
+                    <p>UM BAIRRO DE CULTURA,HISTÓRIA E TRADIÇÃO</p>
+                </div>
+            </section>
 
-        <!-- Busca de Curso -->
-        <section class="searchdomain-container">
-            <h2>Qual curso você pretende iniciar?</h2>
-            <p>Verifique a disponibilidade do seu curso</p>
-            <form>
-                <input type="text" name="domain" id="domain" placeholder="Digite o curso">
-                <input type="submit" value="Procurar" class="btn-submit">
-            </form>
-        </section>
+            <section id="guia">
+                <nav class="guias">
+                    <a href="#sobre"><i class="fas fa-home"></i> Sobre</a>
+                    <a href="#historia"><i class="fas fa-history"></i> História</a>
+                    <a href="#curiosidades"><i class="fas fa-lightbulb"></i> Curiosidades</a>
+                    <a href="#section-saude"><i class="fas fa-hospital"></i> Saúde</a>
+                    <a href="#section-school"><i class="fas fa-school"></i> Educação</a>
+                    <a href="#section-comercio"><i class="fas fa-shop"></i> Comércio</a>
+                    <a href="#section-food"><i class="fas fa-shop"></i> Restaurante</a>
+                </nav>
+            </section>
+            <section class="links">
+                <div class="social">
+                    <a href="https://www.instagram.com/hjordinario/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
 
-        <!-- Formulário de Contato -->
-        <section id="contact-container">
-            <h2>Mande uma mensagem</h2>
-            <p>Envie a sua mensagem, um especialista entrará em contato</p>
-            <form>
-                <input type="text" name="name" id="name" placeholder="Seu nome">
-                <input type="email" name="email" id="email" placeholder="Seu e-mail">
-                <textarea name="message" id="message" maxlength="100" placeholder="Descreva qual curso você pretende iniciar"></textarea>
-                <input type="submit" value="Enviar" class="btn-submit">
-            </form>
-        </section>
-    </main>
+                    <a href="https://facebook.com/paginahenriquejorge" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
 
-    <footer>
-        <div class="google">
-            <a target="_blank" rel="noopener" href="https://www.google.com/?hl=pt_BR">
-                <img loading="lazy" alt="Google - Site Seguro" title="Google - Site Seguro" src="https://img.terabyteshop.com.br/selos/google-site-seguro.png" width="90" height="25">
-            </a>
-        </div>
-        <p>Cursos de Programação @ 2025</p>
-    </footer>
-</body>
+                    <a href="https://pt.wikipedia.org/wiki/Henrique_Jorge" target="_blank" rel="noopener noreferrer" aria-label="Wikipédia">
+                        <i class="fab fa-wikipedia-w"></i>
+                    </a>
+
+                    <a href="https://www.olx.com.br/imoveis/aluguel/estado-ce/fortaleza-e-regiao/fortaleza/henrique-jorge" target="_blank" rel="noopener noreferrer" aria-label="OLX">
+                        <img src="../static/img/olx.png" alt="OLX" class="icon">
+                    </a>
+
+                    <a href="https://portal-henriquejorge.webnode.page/" target="_blank" rel="noopener noreferrer" aria-label="Portal">
+                        <img src="../static/img/portal-logo.png" alt="Portal" class="icon">
+                    </a>
+                </div>
+            </section>
+                <!-- VÍDEO YOUTUBE -->
+            <h2 id="menu"><i class="fas fa-home"></i> Sobre o Bairro</h2>
+            <section class="video-youtube">
+                <div class="video-wrapper">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/LYAHeelqBGM" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- NOTÍCIAS -->
+            <section class="container">
+                <div class="plans">
+                    <div class="plan">
+                        <ul>
+                            <li>
+                                <a href="{{ url_for('social') }}">
+                                    <img src="../static/img/icone-de-banco.jpg" alt="banco_social">
+                                </a>
+                            </li>
+                            <p>Banco Social</p>
+
+                            <li>
+                                <a href="https://www.cmfor.ce.gov.br/2023/10/31/solenidade-comemora-60-anos-de-fundacao-do-bairro-henrique-jorge/">
+                                    <img src="../static/img/camara.png" alt="camara_municipal">
+                                </a>
+                            </li>
+                            <p>Câmara Municipal de Fortaleza</p>
+                            <li>
+                                <a href="https://www.facebook.com/acmbhj/">
+                                    <img src="../static/img/logo_henriqueJorge.png" alt="acaocomunitaria">
+                                </a>
+                            </li>
+                            <p>Ação Social Henrique Jorge</p>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <h2 id="menu"><i class="fas fa-history"></i> História</h2>        
+            <section class="bairro">
+                <section id="historia">
+                    <h2>Nossa História</h2>
+                    <p>O Henrique Jorge possui raízes no século XIX e ganhou destaque na década de 1950 ao abrigar o 
+                        **primeiro conjunto habitacional** de Fortaleza, inicialmente para sargentos do Exército. 
+                        O bairro foi nomeado em homenagem a um músico local. É um local que respira cultura e comunidade.</p>
+                </section>
+
+                <section id="infraestrutura">
+                    <h2>Infraestrutura e Comércio</h2>
+                    <p>A <strong>Avenida Fernandes Távora</strong> é o coração comercial do bairro, onde se encontra 
+                        a maior parte dos serviços, lojas e mercados. O bairro tem crescido e se valorizado com novos 
+                        empreendimentos, mas sem perder sua essência comunitária.</p>
+                    <div class="image-placeholder">
+                        <!-- Imagem ilustrativa da Avenida Fernandes Távora -->
+                        <a href="https://www.waze.com/pt-BR/live-map/directions/br/ce/av.-senador-virgilio-tavora,-1815?to=place.ChIJz9vudoVIxwcRfPwif9NMa3M">
+                            <img src="../static/img/avFernadesTavora.png" alt="Avenida Fernandes Távora, Henrique Jorge">
+                        </a>      
+                    </div>
+                </section>
+
+                <section id="lazer">
+                    <h2>Lazer e Comunidade</h2>
+                    <p>Os moradores contam com a revitalizada Praça da Matriz e o Centro Social Urbano César Cals como pontos de encontro. 
+                        A comunidade é ativa, com iniciativas digitais que conectam os vizinhos e ajudam a resolver problemas locais.</p>
+                </section>
+
+                <section id="localizacao">
+                    <h2>Localização</h2>
+                    <p>Localizado na zona oeste de Fortaleza, o bairro faz divisa com Pici, Dom Lustosa, João XXIII e Antônio Bezerra.</p>
+                    <p>O Bairro Henrique Jorge é uma região da Zona Oeste de Fortaleza, com comércio ativo, escolas, 
+                        hospitais e forte identidade cultural.</p>
+                </section>
+            </section>
+
+            <h2 id="menu"><i class="fas fa-lightbulb"></i> Curiosidades</h2>
+            <section id="curiosidades">
+                    <ul>
+                        <li>Homenageia o músico Henrique Jorge</li>
+                        <li>Centro Social Urbano César Cals oferece atividades culturais e esportivas</li>
+                        <li>Paróquia Imaculado Coração de Maria é referência religiosa local</li>
+                    </ul>
+            </section>
+
+            <h2 id="menu"><i class="fas fa-hospital"></i> Saúde</h2>
+            <section id="section-saude">
+                <div class="cards-container">
+                    <div id="cards-grid">
+                        <div class="card saude" data-category="saude">
+                            <h3>Posto de Saúde Senador Fernandes Távora</h3>
+                            <p>Rua Maceió, 1354</p>
+                            <div class="tooltip">07:00 - 17:00</div>
+                            <a href="https://www.google.com/maps/place/Posto+de+Sa%C3%BAde+Senador+Fernandes+T%C3%A1vora/@-3.7636735,-38.593322,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74c75562b2e3d:0xc2d5fd5b7b456b8!8m2!3d-3.7636789!4d-38.5907471!16s%2Fg%2F1v6l7q6d?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                                class="btn btn-map">
+                                <i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+                        <div class="card saude" data-category="saude">
+                            <h3>Farmácia Pague Menos</h3>
+                            <p>Av. Fernandes Távora, 1578</p>
+                            <div class="tooltip">07:00 - 23:00</div>
+                            <a href="https://www.google.com/maps/place/Av.+Senador+Fernandes+T%C3%A1vora,+1578+-+Henrique+Jorge,+Fortaleza+-+CE,+60510-290/@-3.7612907,-38.5898128,16z/data=!4m6!3m5!1s0x7c74bf388540001:0x776605168a58daab!8m2!3d-3.7595457!4d-38.5866138!16s%2Fg%2F11snqfc8nr?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                                class="btn btn-map">
+                                <i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+                        <div class="card saude" data-category="saude">
+                            <h3>Fármacia Pró-Vida Senador Fernandes Távora 1</h3>
+                            <p>Av. Fernandes Távora, 1804</p>
+                            <div class="tooltip">07:00 - 22:00</div>
+                            <a href="https://www.google.com/maps/place/Farm%C3%A1cia+Pr%C3%B3-Vida+-+Fernandes+T%C3%A1vora+1/@-3.7585408,-38.5935854,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74bf340172067:0x50a98853bedd0e5!8m2!3d-3.7585462!4d-38.5887145!16s%2Fg%2F11bbrgt6kl?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                                class="btn btn-map">
+                                <i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+                        <div class="card saude" data-category="saude">
+                            <h3>Fármacia Pró-Vida Senador Fernandes Távora 2</h3>
+                            <p>Av. Fernandes Távora, 2275</p>
+                            <div class="tooltip">07:00 - 23:00</div>
+                            <a href="https://www.google.com/maps/place/Av.+Senador+Fernandes+T%C3%A1vora,+2275+-+Autran+Nunes,+Fortaleza+-+CE,+60526-641/@-3.7568605,-38.5949616,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74b8d066d9c55:0xa9a9cd17bee9965c!8m2!3d-3.7568659!4d-38.5923867!16s%2Fg%2F11swzcm07f?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                                class="btn btn-map">
+                                <i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ESCOLAS -->
+            <h2 id="menu"><i class="fas fa-school"></i>Educação</h2>
+            <section id="section-school">
+                <div class="cards-container">
+                    <div id="cards-grid">
+                        <div class="card educacao" data-category="educacao">
+                            <h3>EEM Mariano Martins</h3>
+                            <p>Av. Senador Fernandes Távora, 1445</p>
+                            <div class="tooltip">Tel: (85) 3101-5682<br>Ensino Médio</div>
+                            <a href="https://wa.me/558531015682" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=EEM+Mariano+Martins" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+                        <div class="card educacao" data-category="educacao">
+                            <h3>EEMTI Professor Paulo Freire</h3>
+                            <p>Av. Senador Fernandes Távora, 1936</p>
+                            <div class="tooltip">Tel: (85) 34968554<br>Ensino Médio</div>
+                            <a href="https://wa.me/558531015682" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com.br/maps/place/EEMTI+Professor+Paulo+Freire/@-3.7582458,-38.5917342,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74bf3390636ab:0x3315d1b516558163!8m2!3d-3.7582458!4d-38.5891593!16s%2Fg%2F11bbrgxy_r?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+                        <div class="card educacao" data-category="educacao">
+                            <h3>Escola Nossa Senhora das Graças</h3>
+                            <p>Rua Joaquim Manuel de Macedo, 1178</p>
+                            <div class="tooltip">Tel: (85) 3290-0302<br>Privada</div>
+                            <a href="https://wa.me/558532900302" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Escola+Nossa+Senhora+das+Graças" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+                        <div class="card educacao" data-category="educacao">
+                            <h3>CEI Bergson Gurjão Farias</h3>
+                            <p>Av. Senador Fernandes Távora, 2500</p>
+                            <div class="tooltip">Tel: (85) 3290-1210<br>Educação Infantil</div>
+                            <a href="https://wa.me/558532901210" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Colégio+Anita+Mota" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+
+                        <div class="card educacao" data-category="educacao">
+                            <h3>Colégio Felipe dos Santos</h3>
+                            <p>Rua Teresina, 313</p>
+                            <div class="tooltip">Tel: (85) 3233-3698<br>Privada</div>
+                            <a href="https://wa.me/558586500378" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com.br/maps/place/R.+Graco+Cardoso,+135+-+Autran+Nunes,+Fortaleza+-+CE,+60527-000/@-3.7564978,-38.5947435,17z/data=!4m9!1m2!2m1!1scolegio+bergson+gurj%C3%A3o+farias!3m5!1s0x7c74b93cbdb7097:0x17fa989a2b51fe9f!8m2!3d-3.7527383!4d-38.5941569!16s%2Fg%2F11fy78vlmx?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+
+                        <div class="card educacao" data-category="educacao">
+                            <h3>Colégio Luna Rangel</h3>
+                            <p>Rua Eurico Medina, 959</p>
+                            <div class="tooltip">Tel: (85) 3496-2998<br>Privada</div>
+                            <a href="https://wa.me/558534962998" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Colégio+Luna+Rangel" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+
+
+                        <div class="card educacao" data-category="educacao">
+                            <h3>Pingo de Ouro Universidade Infantil</h3>
+                            <p>Rua Natal, 279</p>
+                            <div class="tooltip">Tel: (85) 3290-0297<br>Educação Infantil</div>
+                            <a href="https://wa.me/558532900297" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Pingo+de+Ouro+Universidade+Infantil" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+
+                        <div class="card educacao" data-category="educacao">
+                        <h3>O Brasileirinho Centro Educacional</h3>
+                            <p>Rua Aracaju, 826</p>
+                            <div class="tooltip">Tel: (85) 3290-1878<br>Educação Infantil</div>
+                            <a href="https://wa.me/558532901878" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=O+Brasileirinho+Centro+Educacional" 
+                                class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- # COMÉRCIOS # -->
+            <h2 id="menu"><i class="fas fa-shop"></i>Comércio</h2>
+            <section id="section-comercio">
+                <div class="cards-container">
+                    <div id="cards-grid">
+                        <div class="card comercio" data-category="comercio">
+                                <h3>Mix Mateus Henrique Jorge</h3>
+                                <p>Supermercado</p>
+                                <div class="tooltip">Av. Oliveira Paiva, 1234<br>08:00 - 22:00</div>
+                                <a href="https://www.instagram.com/mixmateushenriquejorge/" class="btn btn-instagram">
+                                    <i class="fab fa-instagram"></i> Instagram</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Mix+Mateus+Henrique+Jorge" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+
+                            <div class="card comercio" data-category="comercio">
+                                <h3>Cometa Supermercados</h3>
+                                <p>Av. Senador Fernandes Távora, 1445</p>
+                                <div class="tooltip">08:00 - 22:00</div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Cometa+Supermercados" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+
+                            <div class="card comercio" data-category="comercio">
+                                <h3>Loja Casa & Ambiente</h3>
+                                <p>Rua Porto Alegre, 1786</p>
+                                <div class="tooltip">08:00 - 20:00</div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Loja+Casa+&+Ambiente" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+
+                            <div class="card comercio" data-category="comercio">
+                                <h3>Padaria Pão & Vida</h3>
+                                <p>Rua Porto Alegre, 1500</p>
+                                <div class="tooltip">06:00 - 20:00</div>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Padaria+Pão+&+Vida" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- # RESTAURANTES # -->
+            <h2 id="menu"><i class="fas fa-utensils"></i>Restaurante</h2>
+            <section id="section-food">
+                <div class="cards-container">
+                    <div id="cards-grid">
+                        
+                            <div class="card restaurante" data-category="comercio">
+                                <h3>Churrascaria do Henrique</h3>
+                                <p>Av. Senador Fernandes Távora, 1500</p>
+                                <div class="tooltip">Tel: (85) 3101-7788<br>11:00 - 23:00</div>
+                                <a href="https://wa.me/558531017788" class="btn btn-whatsapp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Churrascaria+do+Henrique" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+
+                            <div class="card restaurante" data-category="comercio">
+                                <h3>Cantina Italiana Henrique Jorge</h3>
+                                <p>Rua Porto Alegre, 1800</p>
+                                <div class="tooltip">Tel: (85) 3496-2233<br>11:00 - 22:00</div>
+                                <a href="https://wa.me/558534962233" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Cantina+Italiana+Henrique+Jorge" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+
+                            <div class="card restaurante" data-category="comercio">
+                                <h3>Lanchonete Ponto do Sabor</h3>
+                                <p>Rua Monsenhor Hipólito Brasil, 1367</p>
+                                <div class="tooltip">Tel: (85) 3290-9988<br>11:00 - 22:00</div>
+                                <a href="https://wa.me/558532909988" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Lanchonete+Ponto+do+Sabor" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+
+                            <div class="card restaurante" data-category="comercio">
+                                <h3>Restaurante da Esquina</h3>
+                                <p>Rua Teresina, 400</p>
+                                <div class="tooltip">Tel: (85) 3290-3344<br>11:00 - 22:00</div>
+                                <a href="https://wa.me/558532903344" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Restaurante+da+Esquina" 
+                                    class="btn btn-map"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                            </div>
+                    </div>
+                </div>
+            </section>
+                        
+            <section id="mapa">
+                <h2 id="menu"><i class="fas fa-map-marked-alt"></i> Mapa Interativo</h2>
+                <div id="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15923.292132627513!2d-38.5864548!3d-3.7618327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c74bf45097ac95%3A0xe61007b64129a132!2sHenrique%20Jorge%2C%20Fortaleza%20-%20CE!5e0!3m2!1spt-BR!2sbr!4v1697847014000!5m2!1spt-BR!2sbr"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius: 8px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </section>
+                <hr>
+            <section class="services">
+                <ul>
+                    <li>
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                        <h3>Segurança</h3>
+                        <p>Proteção e confiabilidade total para seus dados e transações.</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-rocket fa-2x"></i>
+                        <h3>Performance</h3>
+                        <p>Aplicações otimizadas para desempenho em qualquer dispositivo.</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-comments fa-2x"></i>
+                        <h3>Suporte</h3>
+                        <p>Atendimento rápido e eficiente para tirar suas dúvidas.</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="search-course">
+                <h3>Que bom ter ver por aqui, Deixe-nos uma sugestão!</h3>
+                <p>Como podemos melhorar?</p>
+  
+            </section>
+
+            <section class="contact">
+                <h3>Mande uma mensagem</h3>
+                <p>Um especialista entrará em contato</p>
+                <form>
+                    <input type="text" placeholder="Seu nome">
+                    <input type="email" placeholder="Seu e-mail">
+                    <textarea maxlength="100" placeholder="Mensagem"></textarea>
+                    <input type="submit" value="Enviar" class="btn-submit">
+                </form>  
+            </section>
+
+        </main>   
+        <footer>
+            <p>&copy; 2025 Guia do Bairro Henrique Jorge</p>
+            <div class="social-links">
+                <!-- Conexão com Redes Sociais (Fictícias ou Reais) -->
+                <a href="https://facebook.com/paginahenriquejorge" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/henriquejorgeoficial" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </footer>
+        <br>
+
+    </body>
 </html>

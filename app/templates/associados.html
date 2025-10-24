@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Moradores</title>
+            <!-- Font Awesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/associados.css') }}">
+    </head>
+    <body>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    <header class="navbar">
+        <div class="logo">Bairro Henrique Jorge</div>
+        <nav id="navbar-items">
+            <ul>
+                <li><a href="{{ url_for('social') }}">Banco Social</a></li>
+                <li><a href="{{ url_for('welcome') }}">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="cad">
+        <h2>Lista de Moradores 👥</h2>
+        {% if moradores %}
+            <ul class="user-list">
+            {% for m in moradores %}
+                <li>{{ m.nome }} {{ m.sobrenome or '' }} - Saldo: {{ m.saldo }} HC</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+        <p style="text-align:center;">Nenhum morador cadastrado ainda.</p>
+        {% endif %}
+
+        <h2>Lista de Comércios 🏪</h2>
+        {% if comercios %}
+            <ul class="user-list">
+            {% for c in comercios %}
+                <li>{{ c.nomefantasia or c.nome }} - Proprietário: {{ c.sobrenome or c.proprietario }} - Saldo: {{ c.saldo }} HC</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+        <p style="text-align:center;">Nenhum comércio cadastrado ainda.</p>
+        {% endif %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Guia do Bairro Henrique Jorge</p>
+        <div class="social-links">
+            <a href="https://facebook.com/paginahenriquejorge" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/henriquejorgeoficial" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Remove mensagens flash após 3 segundos
+        setTimeout(() => {
+            const flashMessages = document.querySelectorAll("#flash-{{ category }}");
+            flashMessages.forEach(msg => {
+                msg.style.transition = "opacity 0.5s ease";
+                msg.style.opacity = "0";
+                setTimeout(() => msg.remove(), 500);
+            });
+        }, 3000);
+    </script>
+    </body>
+</html>
+

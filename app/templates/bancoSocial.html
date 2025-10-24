@@ -1,0 +1,199 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Banco Social — Flask</title>
+
+  <!-- CSS local  -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/banco_social.css') }}"> 
+
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h1>Banco Social</h1>
+    <ul>
+      <li><a href="{{ url_for('welcome') }}">Voltar</a></li>
+    <!--  <li><a href="{{ url_for('transferencias') }}">transferencias</a></li>  -->
+    </ul>
+  </nav>
+
+
+<main class="grid-cards">
+
+  <!-- SALDO -->
+  <div class="card saldo">
+    <h2><i class="fa-solid fa-wallet"></i> Saldo</h2>
+    <p>Seu saldo atual:</p>
+    <h3 class="valor">R$ 850,00</h3>
+    <button><i class="fa-solid fa-rotate"></i> Atualizar Saldo</button>
+  </div>
+
+  <!-- ADICIONAR CRÉDITOS -->
+  <div class="card adicionar">
+    <h2><i class="fa-solid fa-circle-plus"></i> Adicionar Créditos</h2>
+    <p>Insira créditos sociais na sua conta.</p>
+    <form>
+      <input type="number" placeholder="Valor em R$" required>
+      <button type="submit"><i class="fa-solid fa-check"></i> Adicionar</button>
+    </form>
+  </div>
+
+  <!-- TRANSFERÊNCIAS -->
+  <a href="{{ url_for('transferencias') }}">
+    <div  class="card transferencia">  
+      <h2><i class="fa-solid fa-right-left">
+      </i> Transferências</h2>
+      <p>Envie créditos sociais para outro associado.</p>
+      <form>
+        <input type="text" placeholder="Nome do destinatário" required>
+        <input type="number" placeholder="Valor" required>
+        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Transferir</button>
+      </form>
+    </div>
+  </a>
+
+  <!-- RECARGA CELULAR -->
+  <div class="card recarga">
+    <h2><i class="fa-solid fa-mobile-screen-button"></i> Recarga Celular</h2>
+    <p>Use seu saldo para recarregar seu celular.</p>
+    <form>
+      <input type="text" placeholder="Número do celular" required>
+      <input type="number" placeholder="Valor da recarga" required>
+      <button type="submit"><i class="fa-solid fa-bolt"></i> Fazer Recarga</button>
+    </form>
+  </div>
+
+  <!-- HISTÓRICO -->
+  <div class="card historico">
+    <h2><i class="fa-solid fa-clock-rotate-left"></i> Histórico</h2>
+    <p>Últimas transações realizadas:</p>
+    <ul class="lista-historico">
+      <li><i class="fa-solid fa-plus text-green"></i> + R$ 100,00 — Crédito recebido</li>
+      <li><i class="fa-solid fa-minus text-red"></i> - R$ 50,00 — Transferência enviada</li>
+      <li><i class="fa-solid fa-mobile"></i> - R$ 30,00 — Recarga celular</li>
+    </ul>
+    <button><i class="fa-solid fa-eye"></i> Ver tudo</button>
+  </div>
+
+  <!-- EXTRATO -->
+  <div class="card extrato">
+    <h2><i class="fa-solid fa-file-lines"></i> Extrato</h2>
+    <p>Visualize e exporte seu extrato completo.</p>
+    <button><i class="fa-solid fa-file-pdf"></i> Exportar PDF</button>
+    <button class="secondary"><i class="fa-solid fa-file-csv"></i> Exportar CSV</button>
+  </div>
+
+</main>
+
+      <section>
+        <div class="grid">
+          <div class="section card" id="content"></div>
+
+            <aside class="section card">
+              <h3>Resumo</h3>
+              <p class="muted">Últimas 5 transações</p>
+              <div class="history-list" id="miniHistory"></div>
+              <div style="margin-top:12px;display:flex;gap:8px">
+                <button id="btnExport">Exportar CSV</button>
+                <button id="btnReset" class="secondary">Resetar demo</button>
+              </div>
+            </aside>
+        </div>
+      </section>
+  </div>
+
+  <br>
+  <br>
+  <hr>
+  <br>
+  <br>
+    <section class="transacoes-container">
+    <h2>Suas Transações</h2>
+    
+    {% if transacoes %}
+      <table>
+        <thead>
+          <tr>
+            <th>Remetente</th>
+            <th>Destinatário</th>
+            <th>Valor</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in transacoes %}
+          <tr>
+            <td>{{ t.remetente.nome }}</td>
+            <td>{{ t.destinatario.nome }}</td>
+            <td>R$ {{ "%.2f"|format(t.valor) }}</td>
+            <td>{{ t.data.strftime("%d/%m/%Y %H:%M") }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="sem-transacoes">Nenhuma transação registrada ainda.</p>
+    {% endif %}
+  </section>
+
+    <!-- SOBRE -->
+  <section class="sobre">
+    <h2>O que é o Banco Social?</h2>
+    <p>
+      O Banco Social Comunitário é um espaço de confiança e colaboração, onde cada morador pode
+      oferecer e receber ajuda, trocar serviços e circular crédito solidário.
+    </p>
+  </section>
+  <br><br>
+      <!-- FUNCIONALIDADES -->
+       <h2> ===== Banco Social =====</h2>
+  <section class="funcionalidades">
+    <h2>Como Funciona</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fa-solid fa-hand-holding-heart fa-2x"></i>
+        <h3>Troca Solidária</h3>
+        <p>Ofereça serviços e receba créditos sociais por sua contribuição.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-wallet fa-2x"></i>
+        <h3>Carteira Digital</h3>
+        <p>Gerencie seu saldo, veja suas transações e envie créditos a amigos.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-chart-line fa-2x"></i>
+        <h3>Economia Local</h3>
+        <p>Fortaleça a comunidade, apoiando quem está ao seu redor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <form method="POST" action="{{ url_for('contato') }}">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" placeholder="Mensagem..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+   <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Guia do Bairro Henrique Jorge</p>
+        <div class="social-links">
+            !-- Conexão com Redes Sociais (Fictícias ou Reais) --
+            <a href="https://facebook.com/paginahenriquejorge" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/henriquejorgeoficial" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

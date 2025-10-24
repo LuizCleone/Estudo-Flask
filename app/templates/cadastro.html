@@ -4,80 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
 </head>
 <body>
+
     <!-- Navbar -->
     <header id="navbar">
         <nav id="navbar-items">
-            <a href="{{ url_for('homepage') }}">Home</a>
-            <a href="{{ url_for('contato') }}">Contato</a>
+            <a href="{{ url_for('login_page') }}">
+                <i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="{{ url_for('contato') }}">
+                <i class="fas fa-envelope"></i> Contato</a>
+            <a href="{{ url_for('inicial')}}">
+                <i class="fas fa-sign-out-alt"></i> sair</a>
         </nav>
     </header>
 
-    <!-- Conteúdo principal -->
-    <main class="cadastro-container">
-        <h1>Cadastro</h1>
+    <!-- Conteúdo principal (imagem + formulário) -->
+    <main id="register-container">
+        <!-- LADO DA IMAGEM -->
+        <div class="image-side">
+            <div class="image-text">
+                <h2>Bem-vindo ao Bairro Henrique Jorge!</h2>
+                <p>Cadastre-se como morador  ou comércio e faça parte da nossa comunidade.</p>
+            </div>
+        </div>
 
-        <!-- Mensagens flash -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            <ul class="flash-messages">
-              {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
+            <!-- LADO DO FORMULÁRIO -->
+        <div class="cadastro-container">
+            <!-- Mensagens Flash -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <ul class="flash-messages">
+                  {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <div class="form-control">
+                <h1>Cadastro</h1>
+                    <!-- Seletor de tipo -->
+                <div class="form-group">
+                    <label for="tipoCadastro">Selecione o tipo de cadastro:</label>
+                    <select id="tipoCadastro" onchange="mostrarFormulario()">
+                        <option value="">-- Escolha --</option>
+                        <option value="morador">Morador 🏠</option>
+                        <option value="comercio">Comércio 🏬</option>
+                    </select>
+                </div>
+                    <!-- Formulário de Morador -->
+                <form id="formMorador" method="POST">
+                {{ form.hidden_tag() }}
+                    <input type="hidden" name="tipo" value="morador">
+                    <div class="form-group">
+                        {{ form.nome.label }} {{ form.nome(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.sobrenome.label }} {{ form.sobrenome(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label }} {{ form.email(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.endereco.label }} {{ form.endereco(size=50) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.senha.label }} {{ form.senha(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.confirmacao_senha.label }} {{ form.confirmacao_senha(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.btnSubmit(class="btn-submit") }}
+                    </div> 
+                </form>
 
-        <!-- Formulário -->
-        <form method="POST">
-            {{ form.hidden_tag() }}
-
-            <div class="form-group">
-                {{ form.nome.label }}
-                {{ form.nome(size=30) }}
-                {% for error in form.nome.errors %}
-                    <span class="error">{{ error }}</span>
-                {% endfor %}
+                    <!-- Formulário de Comércio -->
+                <form id="formComercio" method="POST" class="hidden">
+                {{ form.hidden_tag() }}
+                    <input type="hidden" name="tipo" value="comercio">
+                    <div class="form-group">
+                        {{ form.nomefantasia.label }} {{ form.nomefantasia(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.cnpj.label }} {{ form.cnpj(size=18) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.proprietario.label }} {{ form.proprietario(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.senha.label }} {{ form.senha(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.confirmacao_senha.label }} {{ form.confirmacao_senha(size=30) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.btnSubmit(class="btn-submit") }}
+                    </div> 
+                </form>                
             </div>
 
-            <div class="form-group">
-                {{ form.sobrenome.label }}
-                {{ form.sobrenome(size=30) }}
-                {% for error in form.sobrenome.errors %}
-                    <span class="error">{{ error }}</span>
-                {% endfor %}
-            </div>
-
-            <div class="form-group">
-                {{ form.email.label }}
-                {{ form.email(size=30) }}
-                {% for error in form.email.errors %}
-                    <span class="error">{{ error }}</span>
-                {% endfor %}
-            </div>
-
-            <div class="form-group">
-                {{ form.senha.label }}
-                {{ form.senha(size=30) }}
-                {% for error in form.senha.errors %}
-                    <span class="error">{{ error }}</span>
-                {% endfor %}
-            </div>
-
-            <div class="form-group">
-                {{ form.confirmacao_senha.label }}
-                {{ form.confirmacao_senha(size=30) }}
-                {% for error in form.confirmacao_senha.errors %}
-                    <span class="error">{{ error }}</span>
-                {% endfor %}
-            </div>
-
-            <div class="form-group">
-                {{ form.btnSubmit(class="btn-submit") }}
-            </div>
-        </form> 
+        </div>
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Guia do Bairro Henrique Jorge</p>
+        <div class="social-links">
+            <a href="https://facebook.com/paginahenriquejorge" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/henriquejorgeoficial" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Alterna a exibição dos formulários conforme o tipo selecionado
+        function mostrarFormulario() {
+            const tipo = document.getElementById("tipoCadastro").value;
+            const formMorador = document.getElementById("formMorador");
+            const formComercio = document.getElementById("formComercio");
+
+            formMorador.classList.add("hidden");
+            formComercio.classList.add("hidden");
+
+            if (tipo === "morador") {
+                formMorador.classList.remove("hidden");
+            } else if (tipo === "comercio") {
+                formComercio.classList.remove("hidden");
+            }
+        }
+
+        // Remove mensagens flash automaticamente
+        setTimeout(() => {
+            document.querySelectorAll(".flash-messages li").forEach(msg => {
+                msg.style.transition = "opacity 0.5s ease";
+                msg.style.opacity = "0";
+                setTimeout(() => msg.remove(), 500);
+            });
+        }, 3000);
+    </script>
+
 </body>
 </html>
+

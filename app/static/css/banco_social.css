@@ -1,0 +1,414 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== LAYOUT GERAL ===== */
+body {
+    background: #f3f6f9;
+    color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
+#navbar {
+    /*background: linear-gradient(90deg, #0056b3, #0073e6); */
+    background: #0056b3;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 5%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    font-weight: bold;
+}
+.image {
+    display: flex;
+    align-items: center;
+}
+
+#logo h1 {
+    font-weight: bold;
+}
+
+#navbar-items ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#navbar-items li {
+    background-color: #fff;
+    color: #0056b3;
+    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+    transition: 0.3s;
+}
+
+#navbar-items a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.6rem 0.3rem;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+#navbar-items a:hover {
+    color: #ff9800; /* Muda a cor ao passar o mouse */
+}
+
+span {
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#navbar-items .logout {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+/* ==========================
+   GRID DE CARDS
+========================== */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 5%;
+}
+
+/* ==========================
+   CARD PADRÃO
+========================== */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  font-size: clamp(1rem, 1.2vw + 0.8rem, 1.4rem);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0056b3;
+}
+
+.card p {
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.card input,
+.card select,
+.card textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.card button {
+  background: #0056b3;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.card button:hover {
+  background: #003d80;
+  transform: scale(1.03);
+  color: #ff9800;
+}
+
+.card button.secondary {
+  background: #777;
+}
+
+/* ==========================
+   HISTÓRICO
+========================== */
+.lista-historico {
+  list-style: none;
+}
+
+.lista-historico li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-green { color: #28a745; }
+.text-red { color: #dc3545; }
+
+/* ==========================
+   TABELA DE TRANSAÇÕES
+========================== */
+.transacoes-container {
+  padding: 2rem 5%;
+  overflow-x: auto;
+}
+
+.transacoes-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 480px;
+}
+
+.transacoes-container th,
+.transacoes-container td {
+  text-align: left;
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+.transacoes-container th {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.transacoes-container tr:hover {
+  background: #f9f9f9;
+}
+
+.sem-transacoes {
+  text-align: center;
+  color: #555;
+  margin-top: 1rem;
+}
+
+/* ==========================
+   SEÇÕES: SOBRE E FUNCIONALIDADES
+========================== */
+section.sobre,
+section.funcionalidades {
+  padding: 2rem 5%;
+  background: #fff;
+  margin: 1rem 5%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+section.funcionalidades .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+section.funcionalidades .card {
+  text-align: center;
+}
+.section-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.6rem;
+}
+
+.section-p p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;   
+}
+/* ==========================
+   CONTATO
+========================== */
+.contact {
+  background: #e3f2fd;
+  padding: 5rem 0 3rem;
+  text-align: center;
+  border-radius: 12px;
+  margin: 2rem 5%;
+}
+
+.contact h3 {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.5rem);
+  margin-bottom: 0.6rem;
+  color: #0056b3;
+}
+
+.contact p {
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact input,
+.contact textarea {
+  width: 90%;
+  max-width: 400px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.contact .btn-submit {
+  background: #0056b3;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.contact .btn-submit:hover {
+  background: #004a99;
+  color: #ff9800;
+  transform: scale(1.03);
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: #0056b3;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.8em;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff9800;
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+/* 🟢 até 480px - celulares pequenos */
+@media (max-width: 480px) {
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 4%;
+  }
+
+  #navbar-items ul {
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  .grid-cards {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  section.sobre,
+  section.funcionalidades {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* 🟡 até 768px - tablets */
+@media (max-width: 768px) {
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  section.funcionalidades .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    padding: 3rem 1rem;
+    margin: 1rem;
+  }
+}
+
+/* 🔵 até 1200px - notebooks médios */
+@media (max-width: 1200px) {
+  .grid-cards {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+/* ⚫ telas grandes (até 1600px) */
+@media (min-width: 1600px) {
+  body {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  main {
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}

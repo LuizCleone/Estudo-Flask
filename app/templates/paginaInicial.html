@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bairro Henrique Jorge - Fortaleza</title>
+        <link rel="stylesheet" href="../static/css/paginaInicial.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </head>
+    <body>
+        <!-- HEADER ORIGINAL -->
+        <header>
+            <nav class="navbar">
+                <img src="../static/img/logotitle.png" alt="">
+                <h1>Bairro Henrique Jorge</h1>
+
+            </nav>
+        </header>
+
+        <!-- MENSAGENS FLASH -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <!-- CONTEÚDO CENTRAL -->
+        <div class="main-content">
+                <h1>Faça seu cadastro e seja nosso associado!</h1>
+                <p>Participe da comunidade do bairro Henrique Jorge, conecte-se com moradores e comércios locais.</p>
+            <div class="buttons">
+                <ul>
+                    <li>
+                        <a href="{{ url_for('login_page') }}">
+                            <i class="fas fa-sign-in-alt"></i> Entrar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('cadastro') }}">
+                            <i class="fas fa-user-plus"></i> Cadastro
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('contato') }}">
+                            <i class="fas fa-envelope"></i> Contato
+                        </a>
+                    </li>
+                </ul>
+            </div>
+                <img id="banner" src="../static/img/banner.jpg" alt="Bairro Henrique Jorge">
+        </div>
+        <section class="sobre">
+            <h2>O que é o Banco Social?</h2>
+            <p>
+                O Banco Social Comunitário é um espaço de confiança e colaboração, onde cada morador pode
+                oferecer e receber ajuda, trocar serviços e circular crédito solidário.
+            </p>
+        </section>
+        <section class="banco">
+            <img src="../static/img/logo-E.png" alt="logo-E-Banco">
+
+        </section>
+        <section class="ebanco">
+            <div class="text">
+                <div class="text-content">
+                    <h3>Moeda Social Eletrônica</h3>
+                    <p>O Instituto E- dinheiro Brasil <br> 
+                        tem como objetivo primordial <br>
+                        a difusão e multiplicação <br>
+                        das ações de finanças solidárias, <br>
+                        objetivando facilitar o desenvolvimento <br>
+                        econômico e social de comunidades brasileiras, <br> 
+                        capacitando e implementando o âmbito <br>
+                        e instrumentos da economia solidária.</p>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="../static/img/celular-edinheiro.jpg" alt="celular-edinheiro">
+            </div>
+        </section>
+
+        <footer style="text-align:center; padding:20px; background:#0056b3; margin-top:50px;">
+            &copy; 2025 Guia do Bairro Henrique Jorge
+        </footer>
+
+        <script>
+            // Remover flash automaticamente
+            setTimeout(() => {
+                document.querySelectorAll(".flash-messages li").forEach(msg => {
+                    msg.style.transition = "opacity 0.5s ease";
+                    msg.style.opacity = "0";
+                    setTimeout(() => msg.remove(), 500);
+                });
+            }, 3500);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+
+##  limpar o banco em desenvolvimento, basta abrir o shell Flask##
+#   Remove-Item -Recurse -Force migrations
+
+
+from app import db
+db.drop_all()
+db.create_all()
+
+#   flask db init      # cria nova pasta migrations
+#   flask db migrate   # gera migração inicial
+#   flask db upgrade   # aplica migração ao banco
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HenriqueCoins</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/transferencias.css') }}">
+    <script>
+        function openTab(evt, tabName) {
+            // Esconder todas as abas
+            const tabs = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+
+            // Remover classe ativa dos botões
+            const btns = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].classList.remove("active");
+            }
+
+            // Mostrar a aba clicada
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Mostrar a primeira aba por padrão
+        document.addEventListener("DOMContentLoaded", () => {
+            const firstTab = document.querySelector(".tab-button");
+            if(firstTab) firstTab.click();
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <header>
+        <h1 style="text-align:center;">HenriqueCoins</h1>
+        <p style="text-align:center;">Saldo atual: <strong>{{ user.saldo }} HC</strong></p>
+    </header>
+
+    <!-- Botões das abas -->
+    <div class="tabs">
+        <button class="tab-button" onclick="openTab(event, 'transferir')">💸 Transferir</button>
+        <button class="tab-button" onclick="openTab(event, 'adicionar')">💰 Adicionar</button>
+    </div>
+
+    <!-- Aba Transferir -->
+    <div id="transferir" class="tab-content">
+        <form method="POST" action="{{ url_for('transferencias') }}">
+            <label>Destinatário:</label>
+            <select name="destinatario" required>
+                <optgroup label="👥 Moradores">
+                    {% for d in destinatarios if not d.is_comercio %}
+                        <option value="{{ d.id }}">{{ d.nome }}</option>
+                    {% endfor %}
+                </optgroup>
+                <optgroup label="🏪 Comércios">
+                    {% for d in destinatarios if d.is_comercio %}
+                        <option value="{{ d.id }}">{{ d.nome }}</option>
+                    {% endfor %}
+                </optgroup>
+            </select>
+
+            <label>Valor:</label>
+            <input type="number" step="0.01" name="valor" required>
+
+            <button type="submit" name="acao" value="transferir">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Aba Adicionar -->
+    <div id="adicionar" class="tab-content">
+        <form method="POST" action="{{ url_for('transferencias') }}">
+            <label>Quantidade:</label>
+            <input type="number" step="0.01" name="quantidade" required>
+
+            <button type="submit" name="acao" value="adicionar">Adicionar</button>
+        </form>
+    </div>
+
+    <!-- Histórico -->
+    <section class="historico">
+        <h2>📜 Histórico de Transferências</h2>
+        {% if transacoes %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Remetente</th>
+                        <th>Destinatário</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for t in transacoes %}
+                    <tr>
+                        <td>{{ t.remetente.nome }}</td>
+                        <td>{{ t.destinatario.nome }}</td>
+                        <td>{{ "%.2f"|format(t.valor) }} HC</td>
+                        <td>{{ t.data.strftime("%d/%m/%Y %H:%M") }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p style="text-align:center;">Nenhuma transação registrada ainda.</p>
+        {% endif %}
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Guia do Bairro Henrique Jorge</p>
+        <div class="social-links">
+            <a href="https://facebook.com/paginahenriquejorge" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/henriquejorgeoficial" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>

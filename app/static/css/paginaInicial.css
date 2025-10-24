@@ -1,0 +1,270 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+header {
+    background: #0056b3;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: 6rem;
+    font-weight: bold;
+}
+
+.navbar img {
+    padding: 1.8rem 0.5rem;
+}
+
+/* ===== MAIN ===== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 80%;
+    margin: 40px auto;
+}
+
+.main-content h1 {
+    font-size: 3em;
+    margin-bottom: 3rem;
+}
+
+/* ===== BOTÕES ===== */
+.buttons {
+    margin: 3rem 0;
+}
+
+.buttons ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.buttons li {
+    display: inline-block;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #004aad;
+    text-transform: uppercase;
+    padding: 3rem;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.buttons a:hover {
+    background-color: #0066ff;
+    transform: scale(1.05);
+    color: #ff9800;
+}
+
+/* ===== SEÇÕES ===== */
+.sobre {
+    margin-left: 13rem;
+}
+
+h2 {
+    margin-top: 5rem;
+    color: #0056b3;
+    border-left: 5px solid #ff9800;
+    padding-left: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-left: 3rem;
+    margin-bottom: 10px;
+}
+
+.banco {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+}
+
+/* ===== E-BANCO ===== */
+.ebanco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0;
+    text-align: end;
+}
+
+.text p {
+    font-size: 2rem;
+}
+.ebanco .text,
+.ebanco .image {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+}
+
+.ebanco .text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.ebanco .text h3 {
+    font-size: 3rem;
+    border-left: 5px solid #ff9800;
+    color: #0056b3;
+    margin-bottom: 1.5rem;
+}
+
+.ebanco .text p {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.ebanco .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ebanco .image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* ===== FLASH MESSAGES ===== */
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    max-width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    animation: fadeInUp 0.4s ease-in-out;
+}
+
+.flash-messages li {
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.flash-messages .success { background: #d4edda; color: #155724; border-left: 5px solid #28a745; }
+.flash-messages .info    { background: #d1ecf1; color: #0c5460; border-left: 5px solid #17a2b8; }
+.flash-messages .danger  { background: #f8d7da; color: #721c24; border-left: 5px solid #dc3545; }
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Telas médias (tablets e notebooks menores) */
+@media (max-width: 992px) {
+    .navbar {
+        margin-left: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sobre {
+        margin-left: 2rem;
+    }
+
+    p {
+        margin-left: 1rem;
+    }
+
+    .ebanco {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .ebanco .text,
+    .ebanco .image {
+        flex: 1 1 100%;
+        max-width: 90%;
+    }
+
+    .buttons a {
+        padding: 2rem;
+        font-size: 14px;
+    }
+}
+
+/* Telas pequenas (celulares grandes) */
+@media (max-width: 600px) {
+    .main-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .buttons a {
+        padding: 1.2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    .ebanco .image img {
+        max-width: 90%;
+        border-radius: 12px;
+    }
+
+    .sobre {
+        margin-left: 1rem;
+        text-align: center;
+    }
+
+    h2, p {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* Telas muito pequenas (celulares compactos) */
+@media (max-width: 380px) {
+    body, html {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .navbar h1,
+    .main-content h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .buttons a {
+        font-size: 12px;
+        padding: 0.8rem 1rem;
+        border-radius: 15px;
+    }
+
+    .ebanco .image img {
+        max-width: 85%;
+    }
+}

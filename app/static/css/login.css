@@ -1,15 +1,13 @@
-/* ===== RESET GLOBAL ===== */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 /* ===== NAVBAR ===== */
 #navbar {
-    width: 100%;
-    background-color: #0056b3;
+    background: linear-gradient(90deg, #004aad, #0073e6);
     padding: 15px 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
@@ -23,18 +21,19 @@
 }
 
 #navbar-items a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: 0.3s ease;
+   text-transform: uppercase;
+   color: #fff;
+   text-decoration: none;
+   font-weight: bold;
+   letter-spacing: 0.5px;
+   transition: 0.3s ease;
 }
 
 #navbar-items a:hover {
-    color: #ffcc00;
+    color: #ff9800;
 }
 
-/* ===== CONTAINER PRINCIPAL ===== */
+/* ===== CONTEÚDO PRINCIPAL ===== */
 .cadastro-container {
     width: 90%;
     max-width: 450px;
@@ -70,8 +69,7 @@
     margin-bottom: 6px;
 }
 
-.form-group input,
-.form-group textarea {
+.form-group input {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -79,8 +77,7 @@
     transition: 0.3s;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.form-group input:focus {
     border-color: #0056b3;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
@@ -95,27 +92,33 @@
 
 /* ===== MENSAGENS FLASH ===== */
 .flash-messages {
-    list-style: none;
-    margin-bottom: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: center;
 }
 
 .flash-messages li {
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  animation: fadeOut 4s forwards;
 }
 
-.flash-messages li.success {
-    background-color: #d4edda;
-    color: #155724;
+/* Cores por categoria */
+.flash-messages .success { background: #d4edda; color: #155724; }
+.flash-messages .info    { background: #d1ecf1; color: #0c5460; }
+.flash-messages .danger  { background: #f8d7da; color: #721c24; }
+.flash-messages .warning { background: #fff3cd; color: #856404; }
+
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; display: none; }
 }
 
-.flash-messages li.error {
-    background-color: #f8d7da;
-    color: #721c24;
-}
 
 /* ===== BOTÃO SUBMIT ===== */
 .btn-submit {
@@ -132,10 +135,36 @@
 
 .btn-submit:hover {
     background-color: #004494;
+    color: #ff9800;
     transform: scale(1.02);
+}
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #004eb3;
+    color: white;
+    border-radius: 8px;
+}
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff9800; /* Muda a cor ao passar o mouse */
 }
 
 /* ===== RESPONSIVIDADE ===== */
+
+/* Tablets */
 @media (max-width: 768px) {
     #navbar-items {
         gap: 25px;
@@ -152,6 +181,7 @@
     }
 }
 
+/* Celulares */
 @media (max-width: 480px) {
     #navbar-items {
         flex-direction: column;
@@ -168,8 +198,7 @@
         font-size: 1.6rem;
     }
 
-    .form-group input,
-    .form-group textarea {
+    .form-group input {
         font-size: 0.95rem;
         padding: 10px;
     }
@@ -180,6 +209,34 @@
     }
 }
 
+@media (max-width: 400px) {
+    #navbar-items {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .cadastro-container {
+        margin: 40px auto;
+        padding: 25px;
+        width: 92%;
+    }
+
+    .cadastro-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* Telas muito grandes */
 @media (min-width: 1600px) {
     .cadastro-container {
         max-width: 600px;

@@ -1,218 +1,311 @@
-/* ===== Reset e Base ===== */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    background: linear-gradient(135deg, #004aad, #0073e6);
-    min-height: 100vh;
-    color: #333;
+/* ===== NAVBAR ===== */
+#navbar {
+    background: #0056b3;
+    padding: 15px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#navbar-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+#navbar-items a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
+
+#navbar-items a:hover {
+    color: #ff9800;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+#contato-container {
+    max-width: 80%;
+    min-height: 80vh;
+    margin: 3.4rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+/* ===== IMAGEM LATERAL ===== */
+.image-side {
+    background: url("../img/cadastro_banner.jpg") center/cover no-repeat;
+    width: 50%;
+}
+
+.image-text {
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* ===== Header (Topo) ===== */
-.topo {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(6px);
-    padding: 15px 0;
-    display: flex;
     justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
 }
 
-.topo nav {
-    display: flex;
-    gap: 30px;
-}
-
-.topo a {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.topo a:hover {
-    color: #ffeb3b;
-}
-
-/* ===== Container Principal ===== */
-#container {
-    background-color: #fff;
-    margin-top: 120px; /* distancia do topo fixo */
-    width: 450px;
-    max-width: 90%;
-    padding: 30px 25px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.6s ease-in-out;
-}
-
-/* ===== Título ===== */
-h1 {
+.image-text h2 {
     text-align: center;
-    color: #004aad;
-    margin-bottom: 20px;
+    font-size: 4rem;
+    margin-bottom: 1.4rem;
+    color: #0056b3;
+    text-shadow: #000 3px 2px 3px;
 }
 
-/* ===== Formulário ===== */
-form {
+.image-text p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    text-shadow: #ff9800 3px 2px 3px;
+}
+
+/* ===== FORMULÁRIO ===== */
+.contact-container {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 40px 50px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    justify-content: center;
+    border-left: 4px solid #0056b3;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-container h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 30px;
+    font-size: 2rem;
 }
 
 .form-group {
+    margin-bottom: 18px;
     display: flex;
     flex-direction: column;
 }
 
-form label {
-    font-weight: 600;
+.form-group label {
+    font-weight: bold;
+    color: #0056b3;
     margin-bottom: 6px;
-    color: #333;
+    margin-left: 1.5rem;
 }
 
-/* Inputs e Textarea */
-form input[type="text"],
-form input[type="email"],
-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1.8px solid #ccc;
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    resize: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: 0.3s;
 }
 
-form input:focus,
-form textarea:focus {
-    border-color: #0073e6;
-    box-shadow: 0 0 6px rgba(0, 115, 230, 0.4);
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #0056b3;
     outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
 }
 
-/* Textarea específico */
-form textarea {
-    resize: vertical;
-    min-height: 100px;
-    max-height: 300px;
+/* ===== ERROS ===== */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 4px;
 }
 
-/* ===== Botão ===== */
-form input[type="submit"],
-button {
-    background-color: #0073e6;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-form input[type="submit"]:hover,
-button:hover {
-    background-color: #005bb5;
-    transform: scale(1.03);
-}
-
-/* ===== Mensagens Flash ===== */
+/* ===== MENSAGENS FLASH ===== */
 .flash-messages {
     list-style: none;
-    margin-top: 100px;
-    margin-bottom: 15px;
-    padding: 0;
-    width: 90%;
-    max-width: 450px;
+    margin-bottom: 20px;
 }
 
 .flash-messages li {
-    text-align: center;
     padding: 10px;
-    border-radius: 8px;
-    font-weight: 600;
+    border-radius: 6px;
     margin-bottom: 10px;
-    opacity: 0;
-    animation: fadeMessage 6s ease-in-out forwards;
+    text-align: center;
+    font-weight: 600;
 }
 
-/* Categorias */
-.success {
+.flash-messages li.success {
     background-color: #d4edda;
     color: #155724;
-    border: 1px solid #c3e6cb;
 }
 
-.error, .danger {
+.flash-messages li.error {
     background-color: #f8d7da;
     color: #721c24;
-    border: 1px solid #f5c6cb;
 }
 
-.info {
-    background-color: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
+/* ===== BOTÃO ===== */
+.btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 40%;
+    background-color: #0056b3;
+    color: #fff;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
-/* ===== Mensagens de erro de campo ===== */
-.erro {
-    color: #e60000;
-    font-size: 14px;
-    margin-top: 5px;
+.btn-submit:hover {
+    background-color: #004494;
+    color: #ff9800;
+    transform: scale(1.02);
 }
 
-/* ===== Animações ===== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #0056b3;
+    color: white;
+    border-radius: 8px;
 }
 
-@keyframes fadeMessage {
-    0% { opacity: 0; transform: translateY(-5px); }
-    10% { opacity: 1; transform: translateY(0); }
-    80% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(-5px); display: none; }
+.social-links {
+    margin-top: 10px;
 }
 
-/* ===== Responsividade ===== */
-@media (max-width: 480px) {
-    #container {
-        width: 90%;
-        padding: 25px 20px;
-        margin-top: 100px;
-    }
+.social-links a {
+    color: white;
+    font-size: 2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
 
-    .topo nav {
+.social-links a:hover {
+    color: #ff9800;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Telas médias (até 1024px) */
+@media (max-width: 1024px) {
+    #contato-container {
         flex-direction: column;
-        gap: 10px;
+        max-width: 90%;
     }
 
-    .flash-messages {
-        margin-top: 80px;
+    .image-side {
+        width: 100%;
+        height: 250px;
     }
 
-    form input,
-    form textarea,
-    button {
+    .contact-container {
+        border-left: none;
+        border-top: 4px solid #0056b3;
+        padding: 30px;
+    }
+
+    .contact-container h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Telas pequenas (até 768px) */
+@media (max-width: 768px) {
+    #navbar-items {
+        gap: 25px;
+    }
+
+    .contact-container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .btn-submit {
+        width: 80%;
+    }
+}
+
+/* Smartphones pequenos (até 480px) */
+@media (max-width: 480px) {
+    #navbar-items {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .image-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .image-text p {
         font-size: 1rem;
+    }
+
+    .contact-container {
+        margin: 20px auto;
+        width: 92%;
+        padding: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95rem;
         padding: 10px;
     }
 
-    h1 {
-        font-size: 1.7rem;
+    .btn-submit {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+/* Telas muito pequenas (até 380px) */
+@media (max-width: 380px) {
+    .image-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .image-text p {
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .contact-container {
+        padding: 15px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
+
+/* Telas grandes (1600px+) */
+@media (min-width: 1600px) {
+    .contact-container {
+        max-width: 50%;
+        padding: 50px;
+    }
+
+    .contact-container h1 {
+        font-size: 2.4rem;
     }
 }
