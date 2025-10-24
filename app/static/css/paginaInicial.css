@@ -186,17 +186,19 @@ p {
 /* Telas médias (tablets e notebooks menores) */
 @media (max-width: 992px) {
     .navbar {
-        margin-left: 2rem;
+        margin-left: 1rem;
         flex-wrap: wrap;
         justify-content: center;
     }
 
     .sobre {
-        margin-left: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     p {
-        margin-left: 1rem;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .ebanco {
@@ -213,7 +215,7 @@ p {
     }
 
     .buttons a {
-        padding: 2rem;
+        padding: 1.5rem 2rem;
         font-size: 14px;
     }
 }
@@ -221,27 +223,30 @@ p {
 /* Telas pequenas (celulares grandes) */
 @media (max-width: 600px) {
     .main-content h1 {
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
 
     .buttons a {
-        padding: 1.2rem 1.5rem;
-        border-radius: 20px;
+        padding: 1rem 1.2rem;
+        border-radius: 15px;
+        font-size: 13px;
     }
 
     .ebanco .image img {
-        max-width: 90%;
-        border-radius: 12px;
+        max-width: 100%;
+        border-radius: 10px;
     }
 
     .sobre {
-        margin-left: 1rem;
+        margin: 0.5rem;
         text-align: center;
     }
 
     h2, p {
         margin-left: 0;
+        margin-right: 0;
         text-align: center;
+        font-size: 1rem;
     }
 }
 
@@ -252,19 +257,33 @@ p {
         overflow-x: hidden;
     }
 
+    .navbar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
     .navbar h1,
     .main-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         text-align: center;
     }
 
     .buttons a {
-        font-size: 12px;
-        padding: 0.8rem 1rem;
-        border-radius: 15px;
+        font-size: 11px;
+        padding: 0.6rem 0.8rem;
+        border-radius: 12px;
+    }
+
+    .ebanco .text h3 {
+        font-size: 1.6rem;
+    }
+
+    .ebanco .text p {
+        font-size: 0.9rem;
     }
 
     .ebanco .image img {
-        max-width: 85%;
+        max-width: 95%;
     }
 }
+
