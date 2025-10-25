@@ -251,6 +251,48 @@ p {
 }
 
 /* Telas muito pequenas (celulares compactos) */
+@media (max-width: 400px) {
+    body, html {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .navbar h1,
+    .main-content h1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    #banner {
+        max-width: 90%;
+    }
+    .buttons a {
+        font-size: 11px;
+        padding: 0.6rem 0.8rem;
+        border-radius: 12px;
+    }
+    .ebanco {
+        display: inline-block;
+    }
+
+    .ebanco .text h3 {
+        font-size: 1.6rem;
+    }
+
+    .ebanco .text p {
+        font-size: 0.9rem;
+    }
+
+    .ebanco .image img {
+        max-width: 90%;
+    }
+}
+
+
 @media (max-width: 380px) {
     body, html {
         max-width: 100%;
